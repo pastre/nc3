@@ -12,7 +12,7 @@ class AnimationProvider {
     
     static func getPlayerWalkingAction() -> SKAction{
         let frames = self.loadFrames(amount: 2, baseName: "alienBlue_walk")
-        let action = SKAction.animate(with: frames, timePerFrame: 0.5)
+        let action = SKAction.animate(with: frames, timePerFrame: 0.1)
         
         return SKAction.repeatForever(action)
     }
@@ -20,7 +20,7 @@ class AnimationProvider {
     static func getPlayerFlyingAction() -> SKAction {
         
         let frames = self.loadFrames(amount: 2, baseName: "alienBlue_swim")
-        let action = SKAction.animate(with: frames, timePerFrame: 0.5)
+        let action = SKAction.animate(with: frames, timePerFrame: 0.1)
         
         return SKAction.repeatForever(action)
     }

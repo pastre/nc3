@@ -11,6 +11,11 @@ import GameplayKit
 
 class Player: GameObject {
     
+    enum Animation {
+        case walking
+        case flying
+    }
+    
     var isJetpackOn = false
     private var walkedDistance: CGFloat = 0
     
@@ -30,9 +35,16 @@ class Player: GameObject {
         
     }
     
-    // MARK: Update
+    // MARK: - Animation
     
-
+    func setAnimation(to: Animation) {
+        let actions = to == .flying ? AnimationProvider.getPlayerFlyingAction() : AnimationProvider.getPlayerWalkingAction()
+        
+        self.node.removeAllActions()
+        self.node.run(actions)
+    }
+    
+    // MARK: Update
     override func update(_ deltaTime: TimeInterval) {
         let body = self.node.physicsBody!
         
@@ -52,15 +64,32 @@ class Player: GameObject {
     func updatePlayerState(_ dy: CGFloat) {
 
         if dy == 0 && self.node.position.y < 0  {
-            self.stateMachine.enter(PlayerRunning.self)
+            if self.stateMachine.enter(PlayerRunning.self) {
+                self.onStartedWalking()
+            }
         } else if dy < 0 {
-            self.stateMachine.enter(PlayerFalling.self)
+            if self.stateMachine.enter(PlayerFalling.self) {
+                self.onStartedFalling()
+            }
         } else {
-            self.stateMachine.enter(PlayerFlying.self)
+            if self.stateMachine.enter(PlayerFlying.self) {
+                self.onStartedFlying()
+            }
         }
     }
     
     // MARK: - Event callbacks
+    func onStartedWalking() {
+        self.setAnimation(to: .walking)
+    }
+    
+    func onStartedFlying() {
+        self.setAnimation(to: .flying)
+    }
+    
+    func onStartedFalling() {
+        
+    }
     
     func onCoinCollected() {
         self.currentCoin += 1
