@@ -8,15 +8,27 @@
 
 import SwiftUI
 
+extension View {
+    func fillParent(alignment:Alignment = .center) -> some View {
+        return GeometryReader { geometry in
+            self
+                .frame(width: geometry.size.width,
+                       height: geometry.size.height,
+                       alignment: alignment)
+        }
+    }
+}
+
 struct ContentView: View {
     var body: some View {
-        ZStack(
-            alignment: .center,
-            content:  {
-                GameViewAdapter()
-                Text("AE BROWW")
-            }
-        )
+    GameViewAdapter().fillParent(alignment: .topLeading)
+        //        ZStack(
+//            alignment: .center,
+//            content:  {
+//                GameViewAdapter()
+//                Text("AE BROWW")
+//            }
+//        )
     }
 }
 

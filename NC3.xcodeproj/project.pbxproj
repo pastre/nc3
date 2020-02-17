@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D734727523FB3C1200012D8E /* GameAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D734727423FB3C1200012D8E /* GameAdapter.swift */; };
 		D734727723FB3EE800012D8E /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D734727623FB3EE800012D8E /* Game.storyboard */; };
+		D734727923FB583A00012D8E /* AnimationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D734727823FB583A00012D8E /* AnimationProvider.swift */; };
 		D7A93EDB23FB388800C5845E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDA23FB388800C5845E /* AppDelegate.swift */; };
 		D7A93EDD23FB388800C5845E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDC23FB388800C5845E /* SceneDelegate.swift */; };
 		D7A93EDF23FB388800C5845E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDE23FB388800C5845E /* ContentView.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		D734727423FB3C1200012D8E /* GameAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAdapter.swift; sourceTree = "<group>"; };
 		D734727623FB3EE800012D8E /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
+		D734727823FB583A00012D8E /* AnimationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationProvider.swift; sourceTree = "<group>"; };
 		D7A93ED723FB388800C5845E /* NC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A93EDA23FB388800C5845E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A93EDC23FB388800C5845E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,17 +148,17 @@
 		D7A93EEE23FB3B7500C5845E /* game */ = {
 			isa = PBXGroup;
 			children = (
-				D734727623FB3EE800012D8E /* Game.storyboard */,
 				D7A93EFD23FB3BBF00C5845E /* core */,
 				D7A93F0823FB3BBF00C5845E /* enemy */,
 				D7A93F1523FB3BBF00C5845E /* gameplaykit */,
-				D7A93F0623FB3BBF00C5845E /* GameScene.sks */,
-				D7A93F0723FB3BBF00C5845E /* GameScene.swift */,
-				D7A93F1823FB3BBF00C5845E /* GameViewController.swift */,
 				D7A93EEF23FB3BBF00C5845E /* model */,
 				D7A93EF423FB3BBF00C5845E /* particles */,
 				D7A93F0223FB3BBF00C5845E /* pickable */,
 				D7A93EF923FB3BBF00C5845E /* utils */,
+				D7A93F0723FB3BBF00C5845E /* GameScene.swift */,
+				D7A93F0623FB3BBF00C5845E /* GameScene.sks */,
+				D7A93F1823FB3BBF00C5845E /* GameViewController.swift */,
+				D734727623FB3EE800012D8E /* Game.storyboard */,
 			);
 			path = game;
 			sourceTree = "<group>";
@@ -164,10 +166,12 @@
 		D7A93EEF23FB3BBF00C5845E /* model */ = {
 			isa = PBXGroup;
 			children = (
+				D734727823FB583A00012D8E /* AnimationProvider.swift */,
 				D7A93EF023FB3BBF00C5845E /* Background.swift */,
-				D7A93EF123FB3BBF00C5845E /* ZPositionManager.swift */,
-				D7A93EF223FB3BBF00C5845E /* SpeedManager.swift */,
 				D7A93EF323FB3BBF00C5845E /* CoinFactory.swift */,
+				D7A93EFC23FB3BBF00C5845E /* ContactMask.swift */,
+				D7A93EF223FB3BBF00C5845E /* SpeedManager.swift */,
+				D7A93EF123FB3BBF00C5845E /* ZPositionManager.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -188,7 +192,6 @@
 			children = (
 				D7A93EFA23FB3BBF00C5845E /* Utils.swift */,
 				D7A93EFB23FB3BBF00C5845E /* GaussianDistribution.swift */,
-				D7A93EFC23FB3BBF00C5845E /* ContactMask.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				D7A93F2D23FB3BBF00C5845E /* Enemy.swift in Sources */,
 				D7A93F2223FB3BBF00C5845E /* GaussianDistribution.swift in Sources */,
 				D7A93EDF23FB388800C5845E /* ContentView.swift in Sources */,
+				D734727923FB583A00012D8E /* AnimationProvider.swift in Sources */,
 				D7A93F2823FB3BBF00C5845E /* CoinNode.swift in Sources */,
 				D7A93F2C23FB3BBF00C5845E /* GameScene.swift in Sources */,
 				D7A93F2E23FB3BBF00C5845E /* EnemyManager.swift in Sources */,

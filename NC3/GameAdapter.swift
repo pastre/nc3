@@ -16,7 +16,7 @@ struct GameViewAdapter: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: GameViewController, context: UIViewControllerRepresentableContext<GameViewAdapter>) {
-        print("")
+        print("Updated bro")
     }
     
     typealias UIViewControllerType = GameViewController
@@ -26,6 +26,6 @@ struct GameViewAdapter: UIViewControllerRepresentable {
 
 struct GameViewAdapter_Previews: PreviewProvider {
     static var previews: some View {
-        GameViewAdapter().previewLayout(.fixed(width: 568, height: 320))
+        GameViewAdapter()//.previewLayout(.fixed(width: 568, height: 320))
     }
 }
