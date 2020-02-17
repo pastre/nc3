@@ -200,9 +200,9 @@
 			isa = PBXGroup;
 			children = (
 				D7A93EFE23FB3BBF00C5845E /* Interactable.swift */,
-				D7A93EFF23FB3BBF00C5845E /* SpawnCoordinator.swift */,
 				D7A93F0023FB3BBF00C5845E /* GameObject.swift */,
 				D7A93F0123FB3BBF00C5845E /* Player.swift */,
+				D7A93EFF23FB3BBF00C5845E /* SpawnCoordinator.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";

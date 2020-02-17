@@ -81,7 +81,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func touchDown(atPoint pos : CGPoint) {
-        player.changeJetpack(isOn: true)
+        player.onJetpackUpdate(to: true)
     }
     
     func touchMoved(toPoint pos : CGPoint) {
@@ -89,7 +89,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        player.changeJetpack(isOn: false)
+        player.onJetpackUpdate(to: false)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
