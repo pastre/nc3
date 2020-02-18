@@ -34,7 +34,7 @@ class SpawnCoordinator: EnemyManager {
     
     func spawn() {
 
-        self.managers[0].spawnEnemy(on: self.node)
+        self.managers[1].spawnEnemy(on: self.node)
         return
         
         let random = Int.random(in: 0...100)

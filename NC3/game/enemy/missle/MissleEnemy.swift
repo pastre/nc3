@@ -20,17 +20,19 @@ class MissleEnemy: Enemy {
     var currentParticle: SKEmitterNode?
     
     override func getPhysicsBody() -> SKPhysicsBody {
-        return SKPhysicsBody(texture: SKTexture(imageNamed: "missle"), alphaThreshold: 0.9, size: self.getSize())
+        return SKPhysicsBody(texture: SKTexture(imageNamed: "bee_fly1"), alphaThreshold: 0.9, size: self.getSize())
     }
     
     override func configureTextures() {
         self.stateMachine.enter(MissleTracking.self)
     
-        let node = SKSpriteNode(imageNamed: "missle")
+        let node = SKSpriteNode(imageNamed: "bee_fly1")
+        let action = AnimationProvider.getBeeFlyingAction()
         
         node.scale(to: self.getSize())
         node.zPosition = ZPositionManager.MISSLE.rawValue
         
+        node.run(action)
         self.node.addChild(node)
         
         self.prepareForSpawn()
@@ -40,45 +42,9 @@ class MissleEnemy: Enemy {
     override func prepareForSpawn() {
         
         self.timeSinceSpawn = .zero
-        self.setSmokeParticle()
+        
     }
     
-    func setSmokeParticle() {
-        guard let particle = loadParticle(named: "MissleSmoke") else { return }
-        
-        self.currentParticle?.removeFromParent()
-        
-        particle.setScale(0.3)
-        
-        self.currentParticle = particle
-        
-        self.configureParticle()
-    }
-    
-    func setFireParticle() {
-        
-        guard let particle = loadParticle(named: "BatcarFire") else { return }
-        
-        self.currentParticle?.removeFromParent()
-        
-//        particle.yScale = 4
-        particle.setScale(0.2)
-        particle.emissionAngle = 0
-        
-        self.currentParticle = particle
-        
-        self.configureParticle()
-    }
-    
-    
-    func configureParticle(_ forced: Bool = false) {
-        guard let currentParticle = self.currentParticle else { return }
-        
-        self.node.addChild(currentParticle)
-        
-        currentParticle.position = CGPoint(x: self.getSize().width / 2 + currentParticle.particleSize.width / 2 * currentParticle.particleScale, y: 0)
-        currentParticle.zPosition = ZPositionManager.MISSLE.rawValue
-    }
     
     override func update(_ deltaTime: TimeInterval) {
         
@@ -86,10 +52,10 @@ class MissleEnemy: Enemy {
         
         if timeSinceSpawn > self.shootThreshold {
             self.stateMachine.enter(MissleShooting.self)
-            self.currentParticle?.setScale(0.5)
+            
         } else if timeSinceSpawn > self.lockThreshold {
             self.stateMachine.enter(MissleLocked.self)
-            self.setFireParticle()
+            
         }
 
         if self.stateMachine.currentState is MissleTracking {
@@ -112,7 +78,9 @@ class MissleEnemy: Enemy {
     }
     
     func getSize() -> CGSize {
-        return CGSize(width: 60, height: 60 )
+        let ratio = 61/42
+        let size = 40
+        return CGSize(width: size, height: size * ratio )
     }
     
     override func getNodeName() -> String {

@@ -27,6 +27,9 @@ class AnimationProvider {
         return self.getAction(amount: 2, baseName: "snake")
     }
     
+    static func getBeeFlyingAction() -> SKAction {
+        return self.getAction(amount: 2, baseName: "bee_fly")
+    }
     
     private static func getAction(amount: Int, baseName: String, timePerFrame: TimeInterval = 0.1) -> SKAction {
         

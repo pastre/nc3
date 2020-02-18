@@ -48,7 +48,6 @@ class LaserEnemy: Enemy {
     
     func getSize() -> CGSize {
         let ratio: CGFloat = 193/53
-        print("Configured skane", self.node.children.first?.description)
         return CGSize(width: random, height: random * ratio)
     }
     
