@@ -8,20 +8,12 @@
 
 import SwiftUI
 
-extension View {
-    func fillParent(alignment:Alignment = .center) -> some View {
-        return GeometryReader { geometry in
-            self
-                .frame(width: geometry.size.width,
-                       height: geometry.size.height,
-                       alignment: alignment)
-        }
-    }
-}
+
 
 struct ContentView: View {
     var body: some View {
-    GameViewAdapter().fillParent(alignment: .topLeading)
+        GameViewAdapter()
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
