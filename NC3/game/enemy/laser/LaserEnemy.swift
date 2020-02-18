@@ -10,50 +10,46 @@ import SpriteKit
 
 class LaserEnemy: Enemy {
     
-    var size: CGSize!
+    var random: CGFloat! = 30
     
-    init(_ node: SKSpriteNode, scene: GameScene, size: CGSize =  CGSize(width: 20, height: CGFloat.random(in: 60...85))){
-        self.size = size
-        
-        super.init(node, scene: scene)
-        
-        self.node.zRotation = self.getZRotation()
-    }
+    var textureNode: SKSpriteNode?
     
     override func configureTextures() {
         
-        let sphereRadius = self.size.width / 2
+        let topSphere = SKSpriteNode(imageNamed: "snake1")
+        let action = AnimationProvider.getSnakeWiggleAction()
         
-        let topSphere = SKSpriteNode(imageNamed: "moss")
-        let bottomSphere = SKSpriteNode(imageNamed: "moss")
-        let connector = SKSpriteNode(imageNamed: "moss_conector")
-        
-        connector.scale(to: self.getSize())
+        topSphere.scale(to: self.getSize())
+        topSphere.zPosition = ZPositionManager.MOSS_BALL.rawValue
         
         self.node.addChild(topSphere)
-        self.node.addChild(bottomSphere)
-        self.node.addChild(connector)
         
-        topSphere.zPosition = ZPositionManager.MOSS_BALL.rawValue
-        bottomSphere.zPosition = ZPositionManager.MOSS_BALL.rawValue
-        connector.zPosition = ZPositionManager.MOSS_CONECTOR.rawValue
+        topSphere.run(action)
         
-        topSphere.position = CGPoint(x: 0, y: (self.size.height / 2) - sphereRadius)
-        bottomSphere.position = CGPoint(x: 0 / 2, y: -(self.size.height / 2) + sphereRadius)
-        
-        connector.position = CGPoint.zero
-        
+        self.textureNode = topSphere
     }
     
     override func getPhysicsBody() -> SKPhysicsBody {
+//        return SKPhysicsBody(rectangleOf: self.getSize())
+        let texture = SKTexture(imageNamed: "snake1")
+        return SKPhysicsBody(texture: texture, size: self.getSize())
+    }
+    
+    override func prepareForSpawn() {
         
-        return SKPhysicsBody(rectangleOf: self.size)
+        
+        self.random = CGFloat.random(in: 30...50)
+        
+        self.textureNode?.scale(to: self.getSize())
+        self.node.zRotation = self.getZRotation()
+        self.node.scale(to: self.getSize())
+        self.configurePhysics(self.getPhysicsBody())
     }
     
     func getSize() -> CGSize {
-        let sphereRadius = self.size.width / 2
-        let connectorHeight = self.size.height - (2 * sphereRadius)
-        return CGSize(width: self.size.width / 2, height: connectorHeight)
+        let ratio: CGFloat = 193/53
+        print("Configured skane", self.node.children.first?.description)
+        return CGSize(width: random, height: random * ratio)
     }
     
     func getZRotation() -> CGFloat {

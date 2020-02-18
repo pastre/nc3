@@ -22,13 +22,6 @@ extension View {
 struct ContentView: View {
     var body: some View {
     GameViewAdapter().fillParent(alignment: .topLeading)
-        //        ZStack(
-//            alignment: .center,
-//            content:  {
-//                GameViewAdapter()
-//                Text("AE BROWW")
-//            }
-//        )
     }
 }
 

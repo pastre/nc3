@@ -64,6 +64,8 @@ class EnemyManager: GameObject {
             self.activeEnemies.append(newEnemy)
             self.inactiveEnemies.removeFirst()
             
+            newEnemy.prepareForSpawn()
+            
             return
         }
         

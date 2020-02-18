@@ -23,6 +23,11 @@ class AnimationProvider {
         return self.getAction(amount: 2, baseName: "bat_fly", timePerFrame: 0.2)
     }
     
+    static func getSnakeWiggleAction() -> SKAction {
+        return self.getAction(amount: 2, baseName: "snake")
+    }
+    
+    
     private static func getAction(amount: Int, baseName: String, timePerFrame: TimeInterval = 0.1) -> SKAction {
         
         let loader = AnimationLoader(amount: amount, baseName: baseName)

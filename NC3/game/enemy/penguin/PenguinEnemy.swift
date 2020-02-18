@@ -34,9 +34,6 @@ class PenguinEnemy: Enemy {
             node.run(action)
         }
         
-        
-        
-        print("Prepared bat for spawn")
     }
     
     override func update(_ deltaTime: TimeInterval) {
