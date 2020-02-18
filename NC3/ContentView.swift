@@ -12,8 +12,47 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        GameViewAdapter()
-            .edgesIgnoringSafeArea(.all)
+        ZStack(alignment: .topTrailing, content: {
+            HStack(alignment: .top, spacing: 10, content: {
+                VStack(alignment: .leading) {
+                    
+                    Button(action: {
+                        print("Shop")
+                    }) {
+                        Text("Shop")
+                    }
+                    
+                    Button(action: {
+                        print("Characters")
+                    }) {
+                        Text("Characters")
+                    }
+                }
+                
+                
+                ZStack(alignment: .center) {
+                    GameViewAdapter().edgesIgnoringSafeArea(.all)
+                    
+                    Button(action: {
+                        GameEventBinder.instance.publish(event: .gameStart)
+                    }) {
+                        Text("ASD")
+                    }
+                }
+            })
+            
+            
+            HStack(alignment: .top){
+                Text("asd").frame(alignment: .trailing)
+                Text("asd").frame(alignment: .trailing)
+                Text("asd").frame(alignment: .trailing)
+                Text("asd").frame(alignment: .trailing)
+
+            }.frame(alignment: .trailing)
+            
+            
+        }).frame(alignment: .trailing)
+        
     }
 }
 

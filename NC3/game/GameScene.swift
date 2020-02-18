@@ -9,7 +9,8 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
+    
     
     private var player: Player!
     private var lastUpdate = TimeInterval()
@@ -24,34 +25,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode!
     var coinsLabel: SKLabelNode!
     
+    var stateMachine: GKStateMachine = GKStateMachine(states: [IdleState(), PlayingState(), PausedState(), GameOverState()])
+    
     override func didMove(to view: SKView) {
+        
         
         let ground = self.childNode(withName: "ground")!
         let ceiling = self.childNode(withName: "ceiling")!
         let playerNode = childNode(withName: "player") as! SKSpriteNode
-        
         let enemyNode = SKSpriteNode()
-        
-        
         let bgRootNode = self.childNode(withName: "bgRoot")!
-//        let bgNode = self.childNode(withName: "background") as! SKSpriteNode
-        
-//        bgNode.removeFromParent()
         
         bgRootNode.zPosition = ZPositionManager.BACKGROUND.rawValue
         
         self.player = Player(playerNode, scene: self)
         self.enemiesManager = SpawnCoordinator(enemyNode, scene: self)
         
-//        self.backgroundManager = BackgroundManager(root: bgRootNode, background: bgNode)
-//        self.streetManager = ScenarioNode(reference: streetNode)
-        
         self.backgroundManager = BackgroundManager(root: bgRootNode)
         
         self.scoreLabel = self.childNode(withName: "score") as! SKLabelNode
         self.coinsLabel = self.childNode(withName: "coins") as! SKLabelNode
-        
-        
         
         ground.physicsBody?.categoryBitMask = ContactMask.ground.rawValue
         ground.physicsBody?.collisionBitMask = ContactMask.player.rawValue
@@ -77,9 +70,115 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.physicsWorld.contactDelegate = self
         
+        self.configureIdle()
+        
+    }
+    
+    func configureIdle() {
+        
+        self.stateMachine.enter(IdleState.self)
+        GameEventBinder.instance.subscribe(self)
+        self.scene?.isPaused = true
+        self.scoreLabel.isHidden = true
+        self.coinsLabel.isHidden = true
+    }
+    
+    func configureStartGame() {
+        
+        self.stateMachine.enter(PlayingState.self)
+        self.scene?.isPaused = false
+        self.scoreLabel.isHidden = false
+        self.coinsLabel.isHidden = false
     }
     
     
+    override func update(_ currentTime: TimeInterval) {
+           
+        if lastUpdate == 0 {
+            lastUpdate = currentTime
+            return
+        }
+        
+        let deltaTime = currentTime - self.lastUpdate
+        self.lastUpdate = currentTime
+            
+        if deltaTime > 0.1 { return }
+        
+        self.backgroundManager.update(deltaTime)
+        
+        self.gameObjects.forEach { $0.update(deltaTime) }
+        SpeedManager.instance.update(deltaTime)
+        
+        self.scoreLabel.text = "Score: \(String(format: "%04d", self.player.getWalkingDistance()))m"
+            
+    }
+
+    // MARK: - Collision methods
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        guard let nodeA = contact.bodyA.node else { return }
+        guard let nodeB = contact.bodyB.node else { return }
+        
+        if nodeA.name == "player" {
+            self.playerCollision(playerNode: nodeA, other: nodeB)
+        } else if nodeB.name == "player" {
+            self.playerCollision(playerNode: nodeB, other: nodeA)
+        }
+        
+        self.gameOverLabel.color = .link
+    }
+
+   
+    func playerCollision(playerNode: SKNode, other: SKNode) {
+        if other.name!.contains("enemy") {
+            GameEventBinder.instance.publish(event: .gameOver)
+        } else if other.name!.contains("coin") {
+            if let coin = other as? SKSpriteNode {
+                self.onCoinPick(coin)
+            }
+        }
+    }
+    
+    // MARK: - GameEventListener
+    
+    func onGameStart() {
+        self.configureStartGame()
+    }
+    
+    func onGameOver() {
+        self.enemiesManager.clearAll()
+        self.player.reset()
+        
+        self.updateCoinLabel()
+        SpeedManager.instance.onGameOver()
+        
+        if self.gameOverLabel.parent != nil { return }
+        
+        self.addChild(self.gameOverLabel)
+        
+        
+        
+        self.configureIdle()
+    }
+    
+    
+    // MARK: - EVENT UPDATES
+    
+    func updateCoinLabel() {
+        
+        self.coinsLabel.text = "Coins: \(String(format: "%03d", self.player.getCoinCount()))"
+    }
+    
+    
+    func onCoinPick(_ coin: SKSpriteNode) {
+        self.player.onCoinCollected()
+        let pos = coin.position
+        
+        coin.removeFromParent()
+        self.updateCoinLabel()
+    }
+    
+    // MARK: - Touch methods
     func touchDown(atPoint pos : CGPoint) {
         player.onJetpackUpdate(to: true)
     }
@@ -109,85 +208,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
-    
-    override func update(_ currentTime: TimeInterval) {
-       
-        if lastUpdate == 0 {
-            lastUpdate = currentTime
-            return
-        }
-        
-        let deltaTime = currentTime - self.lastUpdate
-        self.lastUpdate = currentTime
-        
-        if deltaTime > 0.1 { return }
-        
-//        self.streetManager.update(deltaTime)
-        self.backgroundManager.update(deltaTime)
-        
-        self.gameObjects.forEach { $0.update(deltaTime) }
-        SpeedManager.instance.update(deltaTime)
-        
-        self.scoreLabel.text = "Score: \(String(format: "%04d", self.player.getWalkingDistance()))m"
-        
-    }
-    
-    func didBegin(_ contact: SKPhysicsContact) {
-        
-        guard let nodeA = contact.bodyA.node else { return }
-        guard let nodeB = contact.bodyB.node else { return }
-        
-        if nodeA.name == "player" {
-            self.playerCollision(playerNode: nodeA, other: nodeB)
-        } else if nodeB.name == "player" {
-            self.playerCollision(playerNode: nodeB, other: nodeA)
-        }
-        
-        self.gameOverLabel.color = .link
-    }
-    
-    func onGameOver() {
-        
-        self.enemiesManager.clearAll()
-        self.player.reset()
-        
-        self.updateCoinLabel()
-        SpeedManager.instance.onGameOver()
-        
-        if self.gameOverLabel.parent != nil { return }
-        
-        self.addChild(self.gameOverLabel)
-        
-        DispatchQueue.main.async {
-            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
-                self.gameOverLabel.removeFromParent()
-            }
-        }
-    }
-    
-    func onCoinPick(_ coin: SKSpriteNode) {
-        self.player.onCoinCollected()
-        let pos = coin.position
-        
-        coin.removeFromParent()
-        self.updateCoinLabel()
-    }
-    
-    func updateCoinLabel() {
-        
-        self.coinsLabel.text = "Coins: \(String(format: "%03d", self.player.getCoinCount()))"
-    }
-    
-    func playerCollision(playerNode: SKNode, other: SKNode) {
-        if other.name!.contains("enemy") {
-            self.onGameOver()
-        } else if other.name!.contains("coin") {
-            if let coin = other as? SKSpriteNode {
-                self.onCoinPick(coin)
-            }
-        }
-    }
-    
+    // MARK: - Getters
     func getPlayer() -> Player {
         return self.player
     }
