@@ -170,6 +170,8 @@
 				D7A93EF023FB3BBF00C5845E /* Background.swift */,
 				D7A93EF323FB3BBF00C5845E /* CoinFactory.swift */,
 				D7A93EFC23FB3BBF00C5845E /* ContactMask.swift */,
+				D7A93F0123FB3BBF00C5845E /* Player.swift */,
+				D7A93EFF23FB3BBF00C5845E /* SpawnCoordinator.swift */,
 				D7A93EF223FB3BBF00C5845E /* SpeedManager.swift */,
 				D7A93EF123FB3BBF00C5845E /* ZPositionManager.swift */,
 			);
@@ -201,8 +203,6 @@
 			children = (
 				D7A93EFE23FB3BBF00C5845E /* Interactable.swift */,
 				D7A93F0023FB3BBF00C5845E /* GameObject.swift */,
-				D7A93F0123FB3BBF00C5845E /* Player.swift */,
-				D7A93EFF23FB3BBF00C5845E /* SpawnCoordinator.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";

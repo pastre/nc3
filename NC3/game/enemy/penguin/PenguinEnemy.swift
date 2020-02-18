@@ -18,12 +18,25 @@ class PenguinEnemy: Enemy {
         
         let body = SKPhysicsBody(texture: texture, alphaThreshold: 0.9, size: self.getSize())
         
-        
-        
-        self.gravity = .random(in: 20...80)
-        
         return body
         
+    }
+    
+    override func prepareForSpawn() {
+    
+        self.gravity = .random(in: 20...80)
+        
+        if let node = self.node.children.first {
+
+            let action = AnimationProvider.getBatFlyingAction()
+            
+            node.removeAllActions()
+            node.run(action)
+        }
+        
+        
+        
+        print("Prepared bat for spawn")
     }
     
     override func update(_ deltaTime: TimeInterval) {
@@ -41,6 +54,9 @@ class PenguinEnemy: Enemy {
         sphere.zPosition = ZPositionManager.PENGUIN.rawValue
         
         self.node.addChild(sphere)
+        
+        let action = AnimationProvider.getBatFlyingAction()
+        self.node.run(action)
         
     }
     

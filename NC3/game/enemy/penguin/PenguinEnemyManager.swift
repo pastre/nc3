@@ -15,8 +15,14 @@ class PenguinEnemyManager: EnemyManager {
         
         newEnemyNode.position = CGPoint(x: GameObject.getScreenWidth(), y: GameObject.getScreenHeight())
         
+        
         return newEnemyNode
     }
+    
+    override func prepareForSpawn(_ enemy: Enemy) {
+        enemy.prepareForSpawn()
+    }
+    
     
     override func getEnemy(using node: SKSpriteNode) -> Enemy {
         return PenguinEnemy(node, scene: self.scene)
