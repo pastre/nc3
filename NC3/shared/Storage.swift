@@ -31,6 +31,10 @@ class StorageFacade {
         self.updatePersistance()
     }
     
+    func getCoins() -> Int {
+        return self.playerBank.coins
+    }
+    
     func updatePersistance(){
         self.defaults.set(self.playerBank.coins, forKey: StorageKeys.coinAmount.rawValue)
     }
@@ -38,6 +42,8 @@ class StorageFacade {
 
 
 class PlayerBank {
+    var coins: Int!
+    
     internal init(coins: Int = 0) {
         self.coins = coins
     }
@@ -45,7 +51,4 @@ class PlayerBank {
     func addCoins(_ amount: Int) {
         self.coins += amount
     }
-    
-    
-    var coins: Int!
 }

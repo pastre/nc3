@@ -29,7 +29,7 @@ struct HomeView: View {
                     Spacer()
                     Spacer()
                     
-                    HomeButtonView(buttonName: "321", iconName: "coinIcon") {
+                    HomeButtonView(buttonName: "\(StorageFacade.instance.getCoins())", iconName: "coinIcon") {
                         print("Cliocou no coins!")
                     }
                     HomeButtonView(buttonName: "Config", iconName: "gear") {

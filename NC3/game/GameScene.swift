@@ -142,6 +142,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
     
     func onGameOver() {
         self.stateMachine.enter(GameOverState.self)
+        StorageFacade.instance.onCoinsReceived(self.player.getCoinCount())
+        
         self.enemiesManager.clearAll()
         self.player.reset()
     
