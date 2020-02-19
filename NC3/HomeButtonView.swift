@@ -39,7 +39,11 @@ struct HomeButtonView: View {
                 Image(self.iconName)
             }
             .padding(20)
-        }
+        }.gesture(TapGesture().onEnded {
+            if let callback = self.callback {
+                callback()
+            }
+        })
     }
 }
 
