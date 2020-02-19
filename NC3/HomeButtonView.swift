@@ -9,16 +9,42 @@
 import SwiftUI
 
 struct HomeButtonView: View {
+    
+    @State var buttonName: String
+    @State var iconName: String
+    
+    var callback: (() -> ())?
+    
     var body: some View {
-        ZStack {
-            Rectangle().fill(Color.blue)
-            Text("Asdasdasd")
+        ZStack(alignment: .center) {
+            Rectangle()
+                .fill(Color("darkBlueBorder"))
+                .cornerRadius(20)
+            
+            Rectangle()
+                .fill(Color("blueBorder"))
+                .cornerRadius(20)
+                .padding(5)
+            
+            Rectangle()
+                .fill(Color("blueFill"))
+                .cornerRadius(20)
+                .padding(10)
+        
+            HStack {
+                Text(self.buttonName)
+                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .foregroundColor(Color.white)
+                Spacer()
+                Image(self.iconName)
+            }
+            .padding(20)
         }
     }
 }
 
 struct HomeButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeButtonView().previewLayout(.fixed(width: 568, height: 320))
+        HomeButtonView(buttonName: "Debug", iconName: "debug").previewLayout(.fixed(width: 200, height: 100))
     }
 }

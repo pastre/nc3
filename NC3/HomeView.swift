@@ -12,24 +12,39 @@ struct HomeView: View {
     
     var body: some View {
         
-        VStack {
-            HStack(alignment: .top) {
+        VStack(alignment: .center) {
+            GeometryReader { r in
                 HStack(alignment: .top) {
-                    Text("Shop")
-                    Text("Skins")
-                }.frame(alignment: .leading)
-                
+                    HStack(alignment: .top) {
+                        HomeButtonView(buttonName: "Shop", iconName: "cart") {
+                            print("Cliocou no cart!")
+                        }
+                        
+                        HomeButtonView(buttonName: "Skins", iconName: "peita") {
+                            print("Cliocou no skins!")
+                        }
+                        
+                    }.frame(alignment: .leading)
+                    
+                    Spacer()
+                    
+                    HStack(alignment: .top) {
+                        HomeButtonView(buttonName: "321", iconName: "coinIcon") {
+                            print("Cliocou no coins!")
+                        }
+                        HomeButtonView(buttonName: "Config", iconName: "gear") {
+                            print("Cliocou no gear!")
+                        }
+                        
+                    }
+                    
+                }.frame(width: r.size.width, height: r.size.height * 0.05, alignment: .top)
                 Spacer()
                 
-                Spacer()
-                HStack(alignment: .top) {
-                    Text("Shop")
-                    Text("compra ai cuseta")
-                }
-                
-            }
+            }.padding(.top, 10)
             
             Spacer()
+            
             Button(action: {
                 GameEventBinder.instance.publish(event: .gameStart)
             }) {
