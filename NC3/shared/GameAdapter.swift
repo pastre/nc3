@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct GameViewAdapter: UIViewControllerRepresentable {
-    let vc = UIStoryboard(name: "Game", bundle: nil).instantiateInitialViewController() as! GameViewController
+    static let vc = UIStoryboard(name: "Game", bundle: nil).instantiateInitialViewController() as! GameViewController
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<GameViewAdapter>) -> GameViewController {
-        return self.vc
+        return GameViewAdapter.vc
     }
     
     func updateUIViewController(_ uiViewController: GameViewController, context: UIViewControllerRepresentableContext<GameViewAdapter>) {
-        print("Updated bro")
+        
     }
     
     typealias UIViewControllerType = GameViewController

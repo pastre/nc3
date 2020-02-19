@@ -62,22 +62,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
         
         self.addChild(enemyNode)
         
-        
-//        streetNode.addChild(streetManager)
-        
         self.gameObjects.append(player)
         self.gameObjects.append(enemiesManager)
         
         self.physicsWorld.contactDelegate = self
         
+        GameEventBinder.instance.subscribe(self)
         self.configureIdle()
-        
     }
     
     func configureIdle() {
         
-        self.stateMachine.enter(IdleState.self)
-        GameEventBinder.instance.subscribe(self)
+        print("To idle? ", self.stateMachine.enter(IdleState.self), self.stateMachine.currentState )
         self.scene?.isPaused = true
         self.scoreLabel.isHidden = true
         self.coinsLabel.isHidden = true
@@ -89,6 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
         self.scene?.isPaused = false
         self.scoreLabel.isHidden = false
         self.coinsLabel.isHidden = false
+        self.gameOverLabel.isHidden = true
     }
     
     
@@ -146,19 +143,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
     }
     
     func onGameOver() {
+        self.stateMachine.enter(GameOverState.self)
         self.enemiesManager.clearAll()
         self.player.reset()
         
         self.updateCoinLabel()
         SpeedManager.instance.onGameOver()
         
+        
+        self.configureIdle()
+        
         if self.gameOverLabel.parent != nil { return }
         
         self.addChild(self.gameOverLabel)
-        
-        
-        
-        self.configureIdle()
     }
     
     

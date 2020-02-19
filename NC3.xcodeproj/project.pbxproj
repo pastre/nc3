@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7291DC323FC9A3300E04B6D /* ObservableGameListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7291DC223FC9A3300E04B6D /* ObservableGameListener.swift */; };
+		D7291DC523FC9EC300E04B6D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7291DC423FC9EC300E04B6D /* HomeView.swift */; };
+		D7291DC723FD751C00E04B6D /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7291DC623FD751C00E04B6D /* GameOverView.swift */; };
 		D734727523FB3C1200012D8E /* GameAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D734727423FB3C1200012D8E /* GameAdapter.swift */; };
 		D734727723FB3EE800012D8E /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D734727623FB3EE800012D8E /* Game.storyboard */; };
 		D734727923FB583A00012D8E /* AnimationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D734727823FB583A00012D8E /* AnimationProvider.swift */; };
@@ -53,6 +56,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D7291DC223FC9A3300E04B6D /* ObservableGameListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableGameListener.swift; sourceTree = "<group>"; };
+		D7291DC423FC9EC300E04B6D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D7291DC623FD751C00E04B6D /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		D734727423FB3C1200012D8E /* GameAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAdapter.swift; sourceTree = "<group>"; };
 		D734727623FB3EE800012D8E /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		D734727823FB583A00012D8E /* AnimationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationProvider.swift; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 			children = (
 				D734727423FB3C1200012D8E /* GameAdapter.swift */,
 				D764992223FC699800AF28F9 /* GameBridge.swift */,
+				D7291DC223FC9A3300E04B6D /* ObservableGameListener.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -143,12 +150,14 @@
 				D7A93EEE23FB3B7500C5845E /* game */,
 				D7A93EDA23FB388800C5845E /* AppDelegate.swift */,
 				D7A93EDC23FB388800C5845E /* SceneDelegate.swift */,
+				D7291DC423FC9EC300E04B6D /* HomeView.swift */,
 				D7A93EDE23FB388800C5845E /* ContentView.swift */,
 				D7A93EE523FB388A00C5845E /* LaunchScreen.storyboard */,
 				D7A93EE823FB388A00C5845E /* Info.plist */,
 				D7A93EE223FB388A00C5845E /* Preview Content */,
 				D764991823FC5AFA00AF28F9 /* Assets.xcassets */,
 				D764991D23FC5D3800AF28F9 /* CandySet.sks */,
+				D7291DC623FD751C00E04B6D /* GameOverView.swift */,
 			);
 			path = NC3;
 			sourceTree = "<group>";
@@ -376,12 +385,14 @@
 				D734727523FB3C1200012D8E /* GameAdapter.swift in Sources */,
 				D7A93F2923FB3BBF00C5845E /* Pickable.swift in Sources */,
 				D7A93F2723FB3BBF00C5845E /* Player.swift in Sources */,
+				D7291DC523FC9EC300E04B6D /* HomeView.swift in Sources */,
 				D7A93F2623FB3BBF00C5845E /* GameObject.swift in Sources */,
 				D7A93F3723FB3BBF00C5845E /* GameViewController.swift in Sources */,
 				D7A93EDD23FB388800C5845E /* SceneDelegate.swift in Sources */,
 				D7A93F2D23FB3BBF00C5845E /* Enemy.swift in Sources */,
 				D7A93F2223FB3BBF00C5845E /* GaussianDistribution.swift in Sources */,
 				D7A93EDF23FB388800C5845E /* ContentView.swift in Sources */,
+				D7291DC323FC9A3300E04B6D /* ObservableGameListener.swift in Sources */,
 				D734727923FB583A00012D8E /* AnimationProvider.swift in Sources */,
 				D7A93F2823FB3BBF00C5845E /* CoinNode.swift in Sources */,
 				D7A93F2C23FB3BBF00C5845E /* GameScene.swift in Sources */,
@@ -400,6 +411,7 @@
 				D7A93F2323FB3BBF00C5845E /* ContactMask.swift in Sources */,
 				D7A93F3523FB3BBF00C5845E /* MissleStates.swift in Sources */,
 				D764992323FC699800AF28F9 /* GameBridge.swift in Sources */,
+				D7291DC723FD751C00E04B6D /* GameOverView.swift in Sources */,
 				D7A93F2123FB3BBF00C5845E /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

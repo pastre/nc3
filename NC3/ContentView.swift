@@ -8,51 +8,15 @@
 
 import SwiftUI
 
-
-
-struct ContentView: View {
+struct ContentView: View{
+    
+    @ObservedObject var gameListener: ObservableGameListener = ObservableGameListener.instance
+    
     var body: some View {
-        ZStack(alignment: .topTrailing, content: {
-            HStack(alignment: .top, spacing: 10, content: {
-                VStack(alignment: .leading) {
-                    
-                    Button(action: {
-                        print("Shop")
-                    }) {
-                        Text("Shop")
-                    }
-                    
-                    Button(action: {
-                        print("Characters")
-                    }) {
-                        Text("Characters")
-                    }
-                }
-                
-                
-                ZStack(alignment: .center) {
-                    GameViewAdapter().edgesIgnoringSafeArea(.all)
-                    
-                    Button(action: {
-                        GameEventBinder.instance.publish(event: .gameStart)
-                    }) {
-                        Text("ASD")
-                    }
-                }
-            })
-            
-            
-            HStack(alignment: .top){
-                Text("asd").frame(alignment: .trailing)
-                Text("asd").frame(alignment: .trailing)
-                Text("asd").frame(alignment: .trailing)
-                Text("asd").frame(alignment: .trailing)
-
-            }.frame(alignment: .trailing)
-            
-            
-        }).frame(alignment: .trailing)
-        
+        ZStack {
+            GameViewAdapter().edgesIgnoringSafeArea(.all)
+            if !self.gameListener.isPlaying { HomeView() }
+        }
     }
 }
 

@@ -12,14 +12,12 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    fileprivate func reloadSKScene() {
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
-
+                
                 CoinFactory.loadPatters(scene)
                 scene.scaleMode = .aspectFill
                 
@@ -27,12 +25,24 @@ class GameViewController: UIViewController {
                 view.presentScene(scene)
             }
             
-//            view.ignoresSiblingOrder = true
+            //            view.ignoresSiblingOrder = true
             
             view.showsFPS = true
             view.showsNodeCount = true
-//            view.showsPhysics = true
+            //            view.showsPhysics = true
+            print("Reloaded scene")
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        reloadSKScene()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.reloadSKScene()
     }
 
     override var shouldAutorotate: Bool {
