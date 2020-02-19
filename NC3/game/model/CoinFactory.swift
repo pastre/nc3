@@ -22,9 +22,7 @@ class CoinFactory{
         node?.removeFromParent()
         node?.children.forEach({ (node) in
             node.name = "coin"
-            print("node",  node)
             if let node = node as? SKSpriteNode {
-                print("Configured!")
                 node.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "coin1"), alphaThreshold: 0.9, size: node.size)
             }
         })
@@ -58,7 +56,6 @@ class CoinFactory{
                 body.contactTestBitMask = ContactMask.player.rawValue
                 
                 node.physicsBody = body
-                print("Configured")
             }
         })
         self.loadedPatterns.append(node)

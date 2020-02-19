@@ -12,45 +12,46 @@ struct HomeView: View {
     
     var body: some View {
         
-        VStack(alignment: .center) {
-            GeometryReader { r in
+        GeometryReader { r in
+            
+            VStack {
                 HStack(alignment: .top) {
-                    HStack(alignment: .top) {
-                        HomeButtonView(buttonName: "Shop", iconName: "cart") {
-                            print("Cliocou no cart!")
-                        }
-                        
-                        HomeButtonView(buttonName: "Skins", iconName: "peita") {
-                            print("Cliocou no skins!")
-                        }
-                        
-                    }.frame(alignment: .leading)
                     
-                    Spacer()
-                    
-                    HStack(alignment: .top) {
-                        HomeButtonView(buttonName: "321", iconName: "coinIcon") {
-                            print("Cliocou no coins!")
-                        }
-                        HomeButtonView(buttonName: "Config", iconName: "gear") {
-                            print("Cliocou no gear!")
-                        }
-                        
+                    HomeButtonView(buttonName: "Shop", iconName: "cart") {
+                        print("Cliocou no cart!")
                     }
                     
-                }.frame(width: r.size.width, height: r.size.height * 0.05, alignment: .top)
+                    HomeButtonView(buttonName: "Skins", iconName: "peita") {
+                        print("Cliocou no skins!")
+                    }
+                    
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    
+                    HomeButtonView(buttonName: "321", iconName: "coinIcon") {
+                        print("Cliocou no coins!")
+                    }
+                    HomeButtonView(buttonName: "Config", iconName: "gear") {
+                        print("Cliocou no gear!")
+                    }
+                        
+                    
+                    }
+                .padding(.top, 10)
+                .frame(width: r.size.width, height: r.size.height * 0.05, alignment: .top)
                 Spacer()
                 
-            }.padding(.top, 10)
-            
-            Spacer()
-            
-            Button(action: {
-                GameEventBinder.instance.publish(event: .gameStart)
-            }) {
-                Text("Tap here to play")
-            }
-            Spacer()
+                Button(action: {
+                    GameEventBinder.instance.publish(event: .gameStart)
+                }) {
+                    Text("Tap here to play")
+                        .font(.system(size: 60, weight: .heavy, design: .rounded))
+                        .foregroundColor(Color("blueFill"))
+                }.frame(width: r.size.width, height: r.size.height * 0.05, alignment: .top)
+                
+                Spacer()
+            }.frame(width: r.size.width, height: r.size.height)
         }
     }
     

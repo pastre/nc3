@@ -72,8 +72,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
     }
     
     func configureIdle() {
-        
-        print("To idle? ", self.stateMachine.enter(IdleState.self), self.stateMachine.currentState )
         self.scene?.isPaused = true
         self.scoreLabel.isHidden = true
         self.coinsLabel.isHidden = true
