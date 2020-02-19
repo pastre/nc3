@@ -15,7 +15,11 @@ struct ContentView: View{
     var body: some View {
         ZStack {
             GameViewAdapter().edgesIgnoringSafeArea(.all)
-            if !self.gameListener.isPlaying { HomeView() }
+            if self.gameListener.isGameOver {
+                GameOverView()
+            } else if !self.gameListener.isPlaying {
+                HomeView()
+            }
         }
     }
 }

@@ -17,6 +17,7 @@
 		D764991E23FC5D3800AF28F9 /* CandySet.sks in Resources */ = {isa = PBXBuildFile; fileRef = D764991D23FC5D3800AF28F9 /* CandySet.sks */; };
 		D764992023FC67BC00AF28F9 /* GameStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D764991F23FC67BC00AF28F9 /* GameStates.swift */; };
 		D764992323FC699800AF28F9 /* GameBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D764992223FC699800AF28F9 /* GameBridge.swift */; };
+		D77539EE23FDCE4300DE55A3 /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77539ED23FDCE4300DE55A3 /* HomeButtonView.swift */; };
 		D7A93EDB23FB388800C5845E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDA23FB388800C5845E /* AppDelegate.swift */; };
 		D7A93EDD23FB388800C5845E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDC23FB388800C5845E /* SceneDelegate.swift */; };
 		D7A93EDF23FB388800C5845E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDE23FB388800C5845E /* ContentView.swift */; };
@@ -66,6 +67,7 @@
 		D764991D23FC5D3800AF28F9 /* CandySet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CandySet.sks; sourceTree = "<group>"; };
 		D764991F23FC67BC00AF28F9 /* GameStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStates.swift; sourceTree = "<group>"; };
 		D764992223FC699800AF28F9 /* GameBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBridge.swift; sourceTree = "<group>"; };
+		D77539ED23FDCE4300DE55A3 /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
 		D7A93ED723FB388800C5845E /* NC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A93EDA23FB388800C5845E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A93EDC23FB388800C5845E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,16 +150,17 @@
 			children = (
 				D764992123FC699100AF28F9 /* shared */,
 				D7A93EEE23FB3B7500C5845E /* game */,
+				D7A93EDE23FB388800C5845E /* ContentView.swift */,
+				D7291DC623FD751C00E04B6D /* GameOverView.swift */,
+				D7291DC423FC9EC300E04B6D /* HomeView.swift */,
+				D77539ED23FDCE4300DE55A3 /* HomeButtonView.swift */,
 				D7A93EDA23FB388800C5845E /* AppDelegate.swift */,
 				D7A93EDC23FB388800C5845E /* SceneDelegate.swift */,
-				D7291DC423FC9EC300E04B6D /* HomeView.swift */,
-				D7A93EDE23FB388800C5845E /* ContentView.swift */,
 				D7A93EE523FB388A00C5845E /* LaunchScreen.storyboard */,
 				D7A93EE823FB388A00C5845E /* Info.plist */,
 				D7A93EE223FB388A00C5845E /* Preview Content */,
 				D764991823FC5AFA00AF28F9 /* Assets.xcassets */,
 				D764991D23FC5D3800AF28F9 /* CandySet.sks */,
-				D7291DC623FD751C00E04B6D /* GameOverView.swift */,
 			);
 			path = NC3;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				D7A93EDF23FB388800C5845E /* ContentView.swift in Sources */,
 				D7291DC323FC9A3300E04B6D /* ObservableGameListener.swift in Sources */,
 				D734727923FB583A00012D8E /* AnimationProvider.swift in Sources */,
+				D77539EE23FDCE4300DE55A3 /* HomeButtonView.swift in Sources */,
 				D7A93F2823FB3BBF00C5845E /* CoinNode.swift in Sources */,
 				D7A93F2C23FB3BBF00C5845E /* GameScene.swift in Sources */,
 				D7A93F2E23FB3BBF00C5845E /* EnemyManager.swift in Sources */,

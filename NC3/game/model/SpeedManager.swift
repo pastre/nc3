@@ -43,7 +43,6 @@ class SpeedManager {
         
     }
     
-    
     func onGameOver() {
         self.configure()
     }

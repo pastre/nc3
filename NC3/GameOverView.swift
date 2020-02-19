@@ -12,15 +12,26 @@ struct GameOverView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color.blue)
+                .fill(Color.white)
                 .frame(width: 200, height: 200, alignment: .center)
             
             VStack {
                 Spacer()
                 Text("Game over!")
                 HStack {
-                    Text("Try again!")
-                    Text("Home")
+                    Button(action: {
+                        ObservableGameListener.instance.goHome()
+                    }) {
+                        Text("Home")
+                    }
+                    Button(action: {
+                        
+                        GameEventBinder.instance.publish(event: .gameStart)
+                    }) {
+                        Text("Try again")
+                    }
+                    
+                    
                 }
                 Spacer()
             }

@@ -146,15 +146,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
         self.stateMachine.enter(GameOverState.self)
         self.enemiesManager.clearAll()
         self.player.reset()
-        
+    
         self.updateCoinLabel()
         SpeedManager.instance.onGameOver()
-        
         
         self.configureIdle()
         
         if self.gameOverLabel.parent != nil { return }
-        
         self.addChild(self.gameOverLabel)
     }
     

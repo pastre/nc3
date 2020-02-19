@@ -11,10 +11,18 @@ import Foundation
 class ObservableGameListener: ObservableObject, GameEventListener {
     func onGameStart() {
         self.isPlaying = true
+        self.isGameOver = false
         self.objectWillChange.send()
     }
     
     func onGameOver() {
+        self.isGameOver = true
+        self.isPlaying = false
+        self.objectWillChange.send()
+    }
+    
+    func goHome() {
+        self.isGameOver = false
         self.isPlaying = false
         self.objectWillChange.send()
     }
@@ -26,5 +34,6 @@ class ObservableGameListener: ObservableObject, GameEventListener {
     static let instance = ObservableGameListener()
     
     @Published var isPlaying: Bool = false
+    @Published var isGameOver: Bool = false
     
 }
