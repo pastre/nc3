@@ -19,11 +19,11 @@ struct HomeButtonView: View {
         ZStack(alignment: .center) {
             Rectangle()
                 .fill(Color("darkBlueBorder"))
-                .cornerRadius(20)
+                .cornerRadius(10)
             
             Rectangle()
                 .fill(Color("blueBorder"))
-                .cornerRadius(20)
+                .cornerRadius(15)
                 .padding(5)
             
             Rectangle()

@@ -19,8 +19,6 @@ struct GameViewAdapter: UIViewControllerRepresentable {
         
     }
     
-    typealias UIViewControllerType = GameViewController
-    
     
 }
 

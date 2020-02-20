@@ -28,6 +28,7 @@ class AnimationProvider {
     }
     
     static func getBeeFlyingAction() -> SKAction {
+        
         return self.getAction(amount: 2, baseName: "bee_fly")
     }
     
