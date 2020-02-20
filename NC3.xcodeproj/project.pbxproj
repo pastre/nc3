@@ -20,6 +20,8 @@
 		D77539EE23FDCE4300DE55A3 /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77539ED23FDCE4300DE55A3 /* HomeButtonView.swift */; };
 		D77539F223FDE7D900DE55A3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77539F123FDE7D900DE55A3 /* Storage.swift */; };
 		D77C58F623FF1B4600CFC828 /* ViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */; };
+		D7A4ADA223FF2EE700E5D18A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA123FF2EE700E5D18A /* Task.swift */; };
+		D7A4ADA423FF2F1F00E5D18A /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA323FF2F1F00E5D18A /* Mission.swift */; };
 		D7A93EDB23FB388800C5845E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDA23FB388800C5845E /* AppDelegate.swift */; };
 		D7A93EDD23FB388800C5845E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDC23FB388800C5845E /* SceneDelegate.swift */; };
 		D7A93EDF23FB388800C5845E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDE23FB388800C5845E /* ContentView.swift */; };
@@ -72,6 +74,8 @@
 		D77539ED23FDCE4300DE55A3 /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
 		D77539F123FDE7D900DE55A3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWrapper.swift; sourceTree = "<group>"; };
+		D7A4ADA123FF2EE700E5D18A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		D7A4ADA323FF2F1F00E5D18A /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		D7A93ED723FB388800C5845E /* NC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A93EDA23FB388800C5845E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A93EDC23FB388800C5845E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 		D7A4ADA023FF2EC700E5D18A /* misssion */ = {
 			isa = PBXGroup;
 			children = (
+				D7A4ADA123FF2EE700E5D18A /* Task.swift */,
+				D7A4ADA323FF2F1F00E5D18A /* Mission.swift */,
 			);
 			path = misssion;
 			sourceTree = "<group>";
@@ -426,6 +432,7 @@
 				D7A93F1A23FB3BBF00C5845E /* ZPositionManager.swift in Sources */,
 				D7A93F3123FB3BBF00C5845E /* MissleEnemy.swift in Sources */,
 				D7A93F3223FB3BBF00C5845E /* MissleEnemyManager.swift in Sources */,
+				D7A4ADA423FF2F1F00E5D18A /* Mission.swift in Sources */,
 				D7A93F1923FB3BBF00C5845E /* Background.swift in Sources */,
 				D7A93F3023FB3BBF00C5845E /* PenguinEnemy.swift in Sources */,
 				D7A93F2F23FB3BBF00C5845E /* PenguinEnemyManager.swift in Sources */,
@@ -434,6 +441,7 @@
 				D77539F223FDE7D900DE55A3 /* Storage.swift in Sources */,
 				D7A93F3623FB3BBF00C5845E /* PlayerStates.swift in Sources */,
 				D7A93F3423FB3BBF00C5845E /* LaserEnemyManger.swift in Sources */,
+				D7A4ADA223FF2EE700E5D18A /* Task.swift in Sources */,
 				D7A93F3323FB3BBF00C5845E /* LaserEnemy.swift in Sources */,
 				D7A93F2323FB3BBF00C5845E /* ContactMask.swift in Sources */,
 				D7A93F3523FB3BBF00C5845E /* MissleStates.swift in Sources */,
