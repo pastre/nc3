@@ -8,17 +8,38 @@
 
 import Foundation
 
-class Task {
+class Task: Identifiable {
     
-    internal init(order: String?, goal: String?, condition: String?, reward: Int?) {
+    
+    
+    var computedGoal: Int?
+    
+    internal init(order: String?, goal: ClosedRange<Int>, reward: Int?) {
         self.order = order
-        self.goal = goal
-        self.condition = condition
-        self.reward = reward
+        self.goalRange = goal
+        self.rewardMultiplier = reward
+        
     }
     
     var order: String!
-    var goal: String!
-    var condition: String!
-    var reward: Int!
+    var goalRange: ClosedRange<Int>
+    var rewardMultiplier: Int!
+    
+    func getGoal() -> Int {
+        if let goal = self.computedGoal {
+            return goal
+        }
+        
+        self.computedGoal = Int.random(in: self.goalRange)
+        return self.getGoal()
+    }
+    
+    func getReward() -> Int {
+        return self.getGoal() * self.rewardMultiplier
+    }
+    
+    func isComplete() -> Bool {
+        fatalError("\(self) did not implement isComplete")
+    }
 }
+

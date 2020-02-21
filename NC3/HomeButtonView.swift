@@ -19,31 +19,14 @@ struct HomeButtonView: View {
         ZStack(alignment: .center) {
             Rectangle()
                 .fill(Color("darkBlueBorder"))
-                .cornerRadius(10)
+                .cornerRadius(8)
             
             Rectangle()
                 .fill(Color("blueBorder"))
-                .cornerRadius(15)
-                .padding(5)
-            
-            Rectangle()
-                .fill(Color("blueFill"))
-                .cornerRadius(20)
-                .padding(10)
-        
-            HStack {
-                Text(self.buttonName)
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
-                    .foregroundColor(Color.white)
-                Spacer()
-                Image(self.iconName)
-            }
-            .padding(20)
-        }.gesture(TapGesture().onEnded {
-            if let callback = self.callback {
-                callback()
-            }
-        })
+                .cornerRadius(8)
+                .padding(4)
+            ButtonView(buttonName: self.buttonName, iconName: self.iconName, callback: self.callback, cornerRadius: 8).edgesIgnoringSafeArea(.all).padding(8)
+        }
     }
 }
 

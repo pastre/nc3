@@ -8,13 +8,45 @@
 
 import Foundation
 
-class Mission {
+class Mission: Task {
     
-    internal init(task: Task?, progress: Double?) {
-        self.task = task
-        self.progress = progress
+    var progress: Int!
+    
+    override init(order: String?, goal: ClosedRange<Int>, reward: Int?) {
+        super.init(order: order, goal: goal, reward: reward)
+        self.bind()
     }
     
-    var task: Task!
-    var progress: Double!
+    @objc func bind() {
+        
+    }
+    
+    func getDescription() -> String{
+        fatalError()
+    }
+}
+
+class WalkMisson: Mission {
+    
+    init() {
+        super.init(order: "Walk", goal: 100...200, reward: 2)
+        self.progress = 0
+    }
+    
+    override func bind() {
+        MissionEventBinder.instance.bind(class: self, to: .walk)
+    }
+    
+    
+    override func isComplete() -> Bool {
+        return self.progress == self.getGoal()
+    }
+    
+    override func getDescription() -> String{
+        return "\(self.order!) \(self.getGoal())"
+    }
+ 
+    func getProgressDescription() -> String {
+        return "\(self.progress!)/\(self.getGoal())"
+    }
 }

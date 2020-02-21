@@ -22,6 +22,11 @@
 		D77C58F623FF1B4600CFC828 /* ViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */; };
 		D7A4ADA223FF2EE700E5D18A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA123FF2EE700E5D18A /* Task.swift */; };
 		D7A4ADA423FF2F1F00E5D18A /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA323FF2F1F00E5D18A /* Mission.swift */; };
+		D7A4ADA623FF2F9800E5D18A /* TaskGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA523FF2F9800E5D18A /* TaskGenerator.swift */; };
+		D7A4ADA824000E5E00E5D18A /* MissionEventBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA724000E5E00E5D18A /* MissionEventBinder.swift */; };
+		D7A4ADAA2400112900E5D18A /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA92400112900E5D18A /* MissionView.swift */; };
+		D7A4ADAC2400124C00E5D18A /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADAB2400124C00E5D18A /* ButtonView.swift */; };
+		D7A4ADAE24005D7B00E5D18A /* MissionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADAD24005D7B00E5D18A /* MissionFacade.swift */; };
 		D7A93EDB23FB388800C5845E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDA23FB388800C5845E /* AppDelegate.swift */; };
 		D7A93EDD23FB388800C5845E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDC23FB388800C5845E /* SceneDelegate.swift */; };
 		D7A93EDF23FB388800C5845E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A93EDE23FB388800C5845E /* ContentView.swift */; };
@@ -76,6 +81,11 @@
 		D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWrapper.swift; sourceTree = "<group>"; };
 		D7A4ADA123FF2EE700E5D18A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D7A4ADA323FF2F1F00E5D18A /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		D7A4ADA523FF2F9800E5D18A /* TaskGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGenerator.swift; sourceTree = "<group>"; };
+		D7A4ADA724000E5E00E5D18A /* MissionEventBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionEventBinder.swift; sourceTree = "<group>"; };
+		D7A4ADA92400112900E5D18A /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
+		D7A4ADAB2400124C00E5D18A /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		D7A4ADAD24005D7B00E5D18A /* MissionFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionFacade.swift; sourceTree = "<group>"; };
 		D7A93ED723FB388800C5845E /* NC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A93EDA23FB388800C5845E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A93EDC23FB388800C5845E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +144,7 @@
 				D764992223FC699800AF28F9 /* GameBridge.swift */,
 				D7291DC223FC9A3300E04B6D /* ObservableGameListener.swift */,
 				D77539F123FDE7D900DE55A3 /* Storage.swift */,
+				D7A4ADAD24005D7B00E5D18A /* MissionFacade.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -154,6 +165,8 @@
 			children = (
 				D7A4ADA123FF2EE700E5D18A /* Task.swift */,
 				D7A4ADA323FF2F1F00E5D18A /* Mission.swift */,
+				D7A4ADA523FF2F9800E5D18A /* TaskGenerator.swift */,
+				D7A4ADA724000E5E00E5D18A /* MissionEventBinder.swift */,
 			);
 			path = misssion;
 			sourceTree = "<group>";
@@ -191,6 +204,8 @@
 				D764991823FC5AFA00AF28F9 /* Assets.xcassets */,
 				D764991D23FC5D3800AF28F9 /* CandySet.sks */,
 				D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */,
+				D7A4ADA92400112900E5D18A /* MissionView.swift */,
+				D7A4ADAB2400124C00E5D18A /* ButtonView.swift */,
 			);
 			path = NC3;
 			sourceTree = "<group>";
@@ -206,11 +221,11 @@
 		D7A93EEE23FB3B7500C5845E /* game */ = {
 			isa = PBXGroup;
 			children = (
-				D7A4ADA023FF2EC700E5D18A /* misssion */,
 				D7A93EFD23FB3BBF00C5845E /* abstract */,
 				D77C591D23FF2ADF00CFC828 /* core */,
 				D7A93F0823FB3BBF00C5845E /* enemy */,
 				D7A93F1523FB3BBF00C5845E /* gameplaykit */,
+				D7A4ADA023FF2EC700E5D18A /* misssion */,
 				D7A93EEF23FB3BBF00C5845E /* model */,
 				D7A93EF423FB3BBF00C5845E /* particles */,
 				D7A93F0223FB3BBF00C5845E /* pickable */,
@@ -416,6 +431,7 @@
 				D734727523FB3C1200012D8E /* GameAdapter.swift in Sources */,
 				D7A93F2923FB3BBF00C5845E /* Pickable.swift in Sources */,
 				D7A93F2723FB3BBF00C5845E /* Player.swift in Sources */,
+				D7A4ADA623FF2F9800E5D18A /* TaskGenerator.swift in Sources */,
 				D7291DC523FC9EC300E04B6D /* HomeView.swift in Sources */,
 				D7A93F2623FB3BBF00C5845E /* GameObject.swift in Sources */,
 				D7A93F3723FB3BBF00C5845E /* GameViewController.swift in Sources */,
@@ -423,6 +439,8 @@
 				D7A93F2D23FB3BBF00C5845E /* Enemy.swift in Sources */,
 				D7A93F2223FB3BBF00C5845E /* GaussianDistribution.swift in Sources */,
 				D7A93EDF23FB388800C5845E /* ContentView.swift in Sources */,
+				D7A4ADA824000E5E00E5D18A /* MissionEventBinder.swift in Sources */,
+				D7A4ADAC2400124C00E5D18A /* ButtonView.swift in Sources */,
 				D7291DC323FC9A3300E04B6D /* ObservableGameListener.swift in Sources */,
 				D734727923FB583A00012D8E /* AnimationProvider.swift in Sources */,
 				D77539EE23FDCE4300DE55A3 /* HomeButtonView.swift in Sources */,
@@ -435,6 +453,8 @@
 				D7A4ADA423FF2F1F00E5D18A /* Mission.swift in Sources */,
 				D7A93F1923FB3BBF00C5845E /* Background.swift in Sources */,
 				D7A93F3023FB3BBF00C5845E /* PenguinEnemy.swift in Sources */,
+				D7A4ADAE24005D7B00E5D18A /* MissionFacade.swift in Sources */,
+				D7A4ADAA2400112900E5D18A /* MissionView.swift in Sources */,
 				D7A93F2F23FB3BBF00C5845E /* PenguinEnemyManager.swift in Sources */,
 				D7A93F2423FB3BBF00C5845E /* Interactable.swift in Sources */,
 				D764992023FC67BC00AF28F9 /* GameStates.swift in Sources */,

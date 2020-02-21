@@ -13,10 +13,8 @@ struct HomeView: View {
     var body: some View {
         
         GeometryReader { r in
-            
             VStack {
                 HStack(alignment: .top) {
-                    
                     HomeButtonView(buttonName: "Shop", iconName: "cart") {
                         print("Cliocou no cart!")
                     }

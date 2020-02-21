@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct GameOverView: View {
+    
+    @ObservedObject var missionListener = MissionFacade.instance
+    
+    
     var body: some View {
         HStack(alignment: .center) {
             
@@ -31,53 +35,106 @@ struct GameOverView: View {
             }
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding(.bottom, 34)
-            .padding(.top, 40)
+            .padding(.top, 20)
+            
+            Spacer()
+            Spacer()
             
             GeometryReader { r in
-
+                
                 VStack(alignment: .center) {
                     
+                    Spacer()
                     HomeButtonView(buttonName: "Home", iconName: "home") {
                         self.goHome()
                     }
+                    
                     Spacer()
-                    Spacer()
-                    Spacer()
+                    
                     HomeButtonView(buttonName: "Again", iconName: "play") {
                         self.onTryAgain()
                     }
-                }.frame(maxWidth: .infinity, maxHeight: r.size.height * 0.3)
+                    Spacer()
+                }.frame(maxWidth: r.size.width * 0.8, maxHeight: r.size.height * 0.3)
                 
             }
+            
+            Spacer()
+            Spacer()
             
             ZStack {
                 GeometryReader { r in
                     
                     RoundedRectangle(cornerRadius: 20)
-                    .fill(Color("brownColor"))
-                    .padding(.top, 15)
-                        .frame(maxWidth: r.size.width * 1)
+                        .fill(Color("brownColor"))
+                        .padding(.top, 20)
+                    //                        .frame(maxWidth: r.size.width )
                     
-                
-                    VStack {
+                    VStack(spacing: 0) {
                         Image("topFloor")
                             .resizable()
-                            .frame(maxWidth: r.size.width * 1, maxHeight: r.size.height * 0.1)
-                        
-                        ViewWrapper.getText("Missions", size: 30)
-                            .foregroundColor(Color.white)
-                        Spacer()
-                        Text("M1")
+                            .scaledToFit()
+                        Group {
+                            ViewWrapper.getText("Missions", size: 30)
+                                .foregroundColor(Color.white)
+                            
+                            Spacer()
+                            
+                            ForEach(self.missionListener.getMissions()) { mission in
+                                VStack{
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(Color("darkBrownColor"))
+                                    
+                                    VStack(spacing: 0) {
+                                        Spacer()
+                                        HStack(alignment: .center){
+                                            ViewWrapper.getText("\(mission.getDescription()).", size:20).foregroundColor(.white)
+                                            
+                                            ViewWrapper.getText("(300/200)", size: 15).foregroundColor(.white)
+                                        }
+                                        
+                                        HStack(alignment: .center) {
+                                            
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius: 20)
+                                                    .fill(Color("blueFill"))
+                                                HStack {
+                                                    Spacer()
+                                                    ViewWrapper.getText("Skip", size: 16).foregroundColor(.white)
+                                                    Spacer()
+                                                    Image("movie").resizable().scaledToFit()
+                                                        .frame(maxWidth: r.size.width * 0.07)
+                                                        
+                                                        
+                                                    Spacer()
+                                                }
+                                            }.padding(.leading, 40)
+                                                .padding(.vertical, 10)
+                                            ViewWrapper.getText("+\(mission.getReward())", size: 16).padding(.trailing, 50)
+                                            
+                                           
+                                            .foregroundColor(Color("goldColor"))
+                                            
+                                        }
+
+                                    }
+                                }.frame(maxWidth: r.size.width * 0.95)
+                                Spacer()
+                                }
+                            }
+                            
+                        }
+//                        .offset(x: 0, y: -20)
                     }
-                    
                 }
             }
-            .frame(minWidth: 0, maxWidth: .infinity)
             .padding(.bottom, 34)
-            .padding(.top, 40)
-            .padding(.leading, 20)
-            .padding(.trailing, 30)
+            .padding(.top, 20)
+        
+            
         }
+        
         
     }
     
