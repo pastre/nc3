@@ -109,14 +109,16 @@ struct GameOverView: View {
                                                         
                                                     Spacer()
                                                 }
-                                            }.padding(.leading, 40)
-                                                .padding(.vertical, 10)
-                                            ViewWrapper.getText("+\(mission.getReward())", size: 16).padding(.trailing, 50)
+                                            }
+                                            .padding(.leading, 40)
+                                            .padding(.vertical, 10)
+                                        ViewWrapper.getText("+\(mission.getReward())", size: 16)
+                                            .padding(.trailing, 50)
+                                        .foregroundColor(Color("goldColor"))
                                             
-                                           
-                                            .foregroundColor(Color("goldColor"))
-                                            
-                                        }
+                                        }.gesture(TapGesture().onEnded {
+                                            print("Mostra o ad ai brow")
+                                        })
 
                                     }
                                 }.frame(maxWidth: r.size.width * 0.95)
