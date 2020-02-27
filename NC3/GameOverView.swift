@@ -81,52 +81,7 @@ struct GameOverView: View {
                             
                             ForEach(self.missionListener.getMissions()) { mission in
                                 VStack{
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .fill(Color("darkBrownColor"))
-                                        
-                                        VStack(spacing: 0) {
-                                            Spacer()
-                                            HStack(alignment: .center){
-                                                ViewWrapper.getText("\(mission.getDescription()).", size:20).foregroundColor(.white)
-                                                
-                                                ViewWrapper.getText("\(mission.getProgressDescription())", size: 15).foregroundColor(.white)
-                                            }
-                                            
-                                            HStack(alignment: .center) {
-                                                
-                                                ZStack {
-                                                    RoundedRectangle(cornerRadius: 20)
-                                                        .fill(Color("blueFill"))
-                                                    HStack {
-                                                        Spacer()
-                                                        ViewWrapper.getText("Skip", size: 16).foregroundColor(.white)
-                                                        Spacer()
-                                                        Image("movie").resizable().scaledToFit()
-                                                            .frame(maxWidth: r.size.width * 0.07)
-                                                        
-                                                        
-                                                        Spacer()
-                                                    }
-                                                }
-                                                .padding(.leading, 40)
-                                                .padding(.vertical, 10)
-                                                ViewWrapper.getText("+\(mission.getReward())", size: 16)
-                                                    .padding(.trailing, 50)
-                                                    .foregroundColor(Color("goldColor")).onAppear {
-                                                        if mission.isComplete() {
-                                                            return withAnimation(.easeInOut(duration: 10)) {
-                                                                
-                                                            }
-                                                        }
-                                                }
-                                                
-                                            }.gesture(TapGesture().onEnded {
-                                                print("Mostra o ad ai brow")
-                                            })
-                                            
-                                        }
-                                    }.frame(maxWidth: r.size.width * 0.95)
+                                    MissionView(mission: mission, r: r.frame(in: .global))
                                     Spacer()
                                 }
                             }

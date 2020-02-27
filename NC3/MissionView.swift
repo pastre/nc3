@@ -11,33 +11,64 @@ import SwiftUI
 struct MissionView: View {
     
     var mission: Mission!
+    var r: CGRect!
+    
+    @State var isCompleted: Bool = false
+    @State var hasAnimated: Bool = false
     var body: some View {
         ZStack {
-            Rectangle()
-            .fill(Color("darkBrownColor"))
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color("darkBrownColor"))
             
-            VStack(alignment: .center) {
+            VStack(spacing: 0) {
                 Spacer()
                 HStack(alignment: .center){
-                    Spacer()
-                    ViewWrapper.getText("\(self.mission.getDescription())", size:20).foregroundColor(.white)
-                    Spacer()
-                    ViewWrapper.getText("300/200", size: 10).foregroundColor(.white)
-                    Spacer()
+                    ViewWrapper.getText("\(mission.getDescription()).", size:20).foregroundColor(.white)
+                    AnimatableColorText(from: UIColor.systemFill, to: UIColor.green, pct: self.isCompleted ? 1 : 0) {
+                        ViewWrapper.getText("\(self.mission.getProgressDescription())", size: 15)
+                    }
+                    .scaleEffect(self.isCompleted ? 1.5 : 1)
+                    .animation(.easeOut(duration: 1))
+                    .scaleEffect(self.isCompleted ? 1/1.5 : 1)
+                    .animation(Animation.easeInOut(duration: 0.3).delay(1))
                 }
-            
-            
-                HStack {
-                    ButtonView(buttonName: "Skip", iconName: "movie", callback: nil, fontSize: 16, isResizeable: true).padding(.all, 10)
+                
+                HStack(alignment: .center) {
                     
-                    Spacer()
-                    ViewWrapper.getText("+\(self.mission.getDescription())", size: 16).foregroundColor(Color("goldColor"))
-                    Spacer()
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color("blueFill"))
+                        HStack {
+                            Spacer()
+                            ViewWrapper.getText("Skip", size: 16).foregroundColor(.white)
+                            Spacer()
+                            Image("movie").resizable().scaledToFit()
+                                .frame(maxWidth: self.r!.size.width * 0.07)
+                            
+                            Spacer()
+                        }
+                    }
+                    .padding(.leading, 40)
+                    .padding(.vertical, 10)
+                    
+                    ViewWrapper.getText("+\(self.mission.getReward())", size: 16).padding(.trailing, 50).foregroundColor(Color("goldColor"))
+                    
+                }.gesture(TapGesture().onEnded {
+                    print("Mostra o ad ai brow")
+                })
+                
+            }
+        }
+        .frame(maxWidth: self.r.size.width * 0.95)
+        .onAppear {
+            if self.mission.isComplete() {
+                withAnimation(.easeInOut(duration: 2.0)) {
+                    self.isCompleted.toggle()
                 }
-                Spacer()
             }
         }
     }
+    
 }
 
 struct MissionView_Previews: PreviewProvider {
