@@ -8,9 +8,22 @@
 
 import SwiftUI
 
-struct GameOverView: View {
+struct GameOverView: View, GameEventListener {
+    func onGameStart() {
+        
+    }
+    
+    func onGameOver() {
+        self.currentScore = Player.getWalkingDistance()
+    }
+    
     
     @ObservedObject var missionListener = MissionFacade.instance
+    @State var currentScore: Int!
+    
+    init() {
+        GameEventBinder.instance.subscribe(self)
+    }
     
     var body: some View {
         HStack(alignment: .center) {
@@ -19,7 +32,7 @@ struct GameOverView: View {
                 ViewWrapper.getText("Distance", size: 57, weight: .regular)
                     .foregroundColor(Color("blueFill"))
                 
-                ViewWrapper.getText("3214", size: 83, weight: .heavy)
+                ViewWrapper.getText("\(String(format: "%04d", Player.getWalkingDistance()))", size: 83, weight: .heavy)
                     .foregroundColor(Color("blueFill"))
                 
                 
@@ -28,7 +41,7 @@ struct GameOverView: View {
                 ViewWrapper.getText("Coins", size: 57, weight: .regular)
                     .foregroundColor(Color("goldColor"))
                 
-                ViewWrapper.getText("3214", size: 83, weight: .heavy)
+                ViewWrapper.getText("\(String(format: "%04d", Player.getCoinCount()))", size: 83, weight: .heavy)
                     .foregroundColor(Color("goldColor"))
                 
             }

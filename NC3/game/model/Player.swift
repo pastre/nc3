@@ -23,7 +23,7 @@ class Player: GameObject, MissionUpdater, GameEventListener {
     let maxVal: CGFloat = 225
     let minVal: CGFloat = -225
     
-    private var currentCoin: Int = 0
+    private static var currentCoin: Int = 0
     
     let stateMachine: GKStateMachine! = GKStateMachine(states: [PlayerRunning(), PlayerFlying(), PlayerFalling()])
     
@@ -94,7 +94,7 @@ class Player: GameObject, MissionUpdater, GameEventListener {
     }
     
     func onCoinCollected() {
-        self.currentCoin += 1
+        Player.currentCoin += 1
     }
     
     func onJetpackUpdate(to isOn: Bool) {
@@ -103,19 +103,18 @@ class Player: GameObject, MissionUpdater, GameEventListener {
     
     func reset() {
         Player.self.walkedDistance = 0
-        self.currentCoin = 0
+        Player.currentCoin = 0
     }
     
     // MARK: GameEventListener
     
     func onGameStart() {
-        // Configure player for game to start
+        self.reset()
     }
     
     
     func onGameOver() {
         self.onMissionMilestone()
-        self.reset()
     }
     
     
@@ -130,9 +129,10 @@ class Player: GameObject, MissionUpdater, GameEventListener {
         return Int(Player.self.walkedDistance / 50)
     }
     
-    func getCoinCount() -> Int {
-        return self.currentCoin
+    static func getCoinCount() -> Int {
+        return Player.currentCoin
     }
+    
     
     override func getNodeName() -> String {
         return "player"

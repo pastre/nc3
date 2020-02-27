@@ -142,7 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
     
     func onGameOver() {
         self.stateMachine.enter(GameOverState.self)
-        StorageFacade.instance.onCoinsReceived(self.player.getCoinCount())
+        StorageFacade.instance.onCoinsReceived(Player.getCoinCount())
         
         self.enemiesManager.clearAll()
 //        self.player.reset()
@@ -161,7 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
     
     func updateCoinLabel() {
         
-        self.coinsLabel.text = "Coins: \(String(format: "%03d", self.player.getCoinCount()))"
+        self.coinsLabel.text = "Coins: \(String(format: "%03d", Player.getCoinCount()))"
     }
     
     
