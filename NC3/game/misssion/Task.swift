@@ -8,10 +8,20 @@
 
 import Foundation
 
-class Task: Identifiable {
+class Task: Identifiable, Encodable, Decodable {
     
+    enum CodingKeys: String, CodingKey {
+        case order = "order"
+        case goalRange = "goalRange"
+        case rewardMultiplier = "rewardMultiplier"
+        case computedGoal = "computedGoal"
+        
+        case progress = "progress"
+    }
     
-    
+    var order: String!
+    var goalRange: ClosedRange<Int>
+    var rewardMultiplier: Int!
     var computedGoal: Int?
     
     internal init(order: String?, goal: ClosedRange<Int>, reward: Int?) {
@@ -20,10 +30,26 @@ class Task: Identifiable {
         self.rewardMultiplier = reward
         
     }
+
+    required init(from decoder: Decoder) throws {
+        let container = try! decoder.container(keyedBy: CodingKeys.self)
+        
+        self.order = try container.decode(String.self, forKey: .order)
+        self.goalRange = try container.decode(ClosedRange<Int>.self, forKey: .goalRange)
+        self.rewardMultiplier = try container.decode(Int.self, forKey: .rewardMultiplier)
+        self.computedGoal = try container.decode(Int.self, forKey: .computedGoal)
+        
+    }
     
-    var order: String!
-    var goalRange: ClosedRange<Int>
-    var rewardMultiplier: Int!
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(self.order, forKey: .order)
+        try container.encode(self.goalRange, forKey: .goalRange)
+        try container.encode(self.rewardMultiplier, forKey: .rewardMultiplier)
+        try container.encode(self.computedGoal, forKey: .computedGoal)
+        
+    }
     
     func getGoal() -> Int {
         if let goal = self.computedGoal {

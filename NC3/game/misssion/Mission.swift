@@ -17,6 +17,16 @@ class Mission: Task {
         self.bind()
     }
     
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.progress = try container.decode(Int.self, forKey: .progress)
+    }
+    
+    
+    
     @objc func bind() {
         
     }
@@ -31,6 +41,10 @@ class WalkMisson: Mission {
     init() {
         super.init(order: "Walk", goal: 100...200, reward: 2)
         self.progress = 0
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
     
     override func bind() {
