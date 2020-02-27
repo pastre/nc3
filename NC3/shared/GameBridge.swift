@@ -44,6 +44,7 @@ class GameEventBinder: GameEventListener {
     }
     
     func onGameOver() {
+        print("[GameEventBinder] Publishing game over!!")
         self.supplicants.forEach {
             $0.onGameOver()
         }

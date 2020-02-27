@@ -15,6 +15,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
     private var player: Player!
     private var lastUpdate = TimeInterval()
     private var jetpackIsOn = false
+    private var isGameOver: Bool = false
     
     var enemiesManager: SpawnCoordinator!
     var backgroundManager: BackgroundManager!
@@ -84,6 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
         self.scoreLabel.isHidden = false
         self.coinsLabel.isHidden = false
         self.gameOverLabel.isHidden = true
+        self.isGameOver = false
     }
     
     
@@ -125,8 +127,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
 
    
     func playerCollision(playerNode: SKNode, other: SKNode) {
-        if other.name!.contains("enemy") {
+        if other.name!.contains("enemy") && !self.isGameOver {
             GameEventBinder.instance.publish(event: .gameOver)
+            self.isGameOver = true
         } else if other.name!.contains("coin") {
             if let coin = other as? SKSpriteNode {
                 self.onCoinPick(coin)

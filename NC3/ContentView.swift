@@ -13,6 +13,7 @@ struct ContentView: View{
     @ObservedObject var gameListener: ObservableGameListener = ObservableGameListener.instance
     
     var body: some View {
+//        GameOverView()
         ZStack {
             GameViewAdapter().edgesIgnoringSafeArea(.all)
             if self.gameListener.isGameOver {

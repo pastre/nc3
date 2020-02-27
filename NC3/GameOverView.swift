@@ -20,6 +20,7 @@ struct GameOverView: View, GameEventListener {
     
     @ObservedObject var missionListener = MissionFacade.instance
     @State var currentScore: Int!
+    @State var coinsPosition: CGPoint!
     
     init() {
         GameEventBinder.instance.subscribe(self)
@@ -27,86 +28,94 @@ struct GameOverView: View, GameEventListener {
     
     var body: some View {
         HStack(alignment: .center) {
-            
-            VStack(alignment: .leading) {
-                ViewWrapper.getText("Distance", size: 57, weight: .regular)
-                    .foregroundColor(Color("blueFill"))
-                
-                ViewWrapper.getText("\(String(format: "%04d", Player.getWalkingDistance()))", size: 83, weight: .heavy)
-                    .foregroundColor(Color("blueFill"))
-                
+//            GeometryReader { gloabal in
+                VStack(alignment: .leading) {
+                    ViewWrapper.getText("Distance", size: 57, weight: .regular)
+                        .foregroundColor(Color("blueFill"))
+                    
+                    ViewWrapper.getText("\(String(format: "%04d", Player.getWalkingDistance()))", size: 83, weight: .heavy)
+                        .foregroundColor(Color("blueFill"))
+                    
+                    
+                    Spacer()
+                    
+                    ViewWrapper.getText("Coins", size: 57, weight: .regular)
+                        .foregroundColor(Color("goldColor"))
+                    
+                    ViewWrapper.getText("\(String(format: "%04d", Player.getCoinCount()))", size: 83, weight: .heavy)
+                        .foregroundColor(Color("goldColor")).overlay(
+                            GeometryReader { rr in
+                                Color.clear.onAppear {
+                                    self.coinsPosition = rr.frame(in: .global).origin
+                                }
+                                
+                            }
+                    )
+                    
+                }
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding(.bottom, 34)
+                .padding(.top, 20)
                 
                 Spacer()
+                Spacer()
                 
-                ViewWrapper.getText("Coins", size: 57, weight: .regular)
-                    .foregroundColor(Color("goldColor"))
-                
-                ViewWrapper.getText("\(String(format: "%04d", Player.getCoinCount()))", size: 83, weight: .heavy)
-                    .foregroundColor(Color("goldColor"))
-                
-            }
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .padding(.bottom, 34)
-            .padding(.top, 20)
-            
-            Spacer()
-            Spacer()
-            
-            GeometryReader { r in
-                
-                VStack(alignment: .center) {
-                    
-                    Spacer()
-                    HomeButtonView(buttonName: "Home", iconName: "home") {
-                        self.goHome()
-                    }
-                    
-                    Spacer()
-                    
-                    HomeButtonView(buttonName: "Again", iconName: "play") {
-                        self.onTryAgain()
-                    }
-                    Spacer()
-                }.frame(maxWidth: r.size.width * 0.8, maxHeight: r.size.height * 0.3)
-                
-            }
-            
-            Spacer()
-            Spacer()
-            
-            ZStack {
                 GeometryReader { r in
                     
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color("brownColor"))
-                        .padding(.top, 20)
-                    //                        .frame(maxWidth: r.size.width )
-                    
-                    VStack(spacing: 0) {
-                        Image("topFloor")
-                            .resizable()
-                            .scaledToFit()
-                        Group {
-                            ViewWrapper.getText("Missions", size: 30)
-                                .foregroundColor(Color.white)
-                            
-                            Spacer()
-                            
-                            ForEach(self.missionListener.getMissions()) { mission in
-                                VStack{
-                                    MissionView(mission: mission, r: r.frame(in: .global))
-                                    Spacer()
-                                }
-                            }
-                            
+                    VStack(alignment: .center) {
+                        
+                        Spacer()
+                        HomeButtonView(buttonName: "Home", iconName: "home") {
+                            self.goHome()
                         }
-                        //                        .offset(x: 0, y: -20)
+                        
+                        Spacer()
+                        
+                        HomeButtonView(buttonName: "Again", iconName: "play") {
+                            self.onTryAgain()
+                        }
+                        Spacer()
+                    }.frame(maxWidth: r.size.width * 0.8, maxHeight: r.size.height * 0.3)
+                    
+                }
+                
+                Spacer()
+                Spacer()
+                
+                ZStack {
+                    GeometryReader { r in
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color("brownColor"))
+                            .padding(.top, 20)
+                        
+                        VStack(spacing: 0) {
+                            Image("topFloor")
+                                .resizable()
+                                .scaledToFit()
+                            Group {
+                                ViewWrapper.getText("Missions", size: 30)
+                                    .foregroundColor(Color.white)
+                                
+                                Spacer()
+                                
+                                ForEach(self.missionListener.getMissions()) { mission in
+                                    
+                                    VStack{
+                                        MissionView(mission: mission, r: r.frame(in: .global), coinsPosition: self.coinsPosition)
+                                        Spacer()
+                                    }
+                                }
+                                
+                            }
+                            //                        .offset(x: 0, y: -20)
+                        }
                     }
                 }
-            }
-            .padding(.bottom, 34)
-            .padding(.top, 20)
-            
+                .padding(.bottom, 34)
+                .padding(.top, 20)
+                
+//            }
             
         }.onAppear(perform: self.debugMe)
         

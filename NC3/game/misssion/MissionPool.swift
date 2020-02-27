@@ -39,5 +39,14 @@ class MissionPool: Encodable, Decodable {
     }
     
     
+    func refreshCompletedMissions() {
+        for (i, mission) in self.missions.enumerated() {
+            if mission.isComplete() {
+                self.missions[i] = Mission.init(order: "Walk", goal: 100...200, reward: 2, bind: .walk)
+            }
+        }
+        
+    }
+    
     var missions: [Mission]!
 }

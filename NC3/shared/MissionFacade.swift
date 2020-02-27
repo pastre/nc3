@@ -36,12 +36,16 @@ class MissionFacade: MissionListener, ObservableObject {
     }
     
     func onUpdate() {
-        self.missions = getMissions()
-        
+        self.updateMissionUI()
+    }
+    
+    func refreshMissions() {
+        self.missionPool.refreshCompletedMissions()
         self.updateMissionUI()
     }
     
     func updateMissionUI() {
+        self.missions = getMissions()
         self.persistMissions()
         self.objectWillChange.send()
     }

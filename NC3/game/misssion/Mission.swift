@@ -68,6 +68,8 @@ class Mission: Task {
         let walkedDistance = Player.getWalkingDistance()
         
         self.progress += walkedDistance
+        
+//        print("Updated walked distance", self.progress, walkedDistance, self.isComplete())
     
     }
 }
