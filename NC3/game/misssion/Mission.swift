@@ -53,7 +53,7 @@ class Mission: Task {
     }
     
     override func isComplete() -> Bool {
-        return self.progress == self.getGoal()
+        return self.progress >= self.getGoal()
     }
     
     func getDescription() -> String{
@@ -61,7 +61,7 @@ class Mission: Task {
        }
     
     func getProgressDescription() -> String {
-        return "\(self.progress!)/\(self.getGoal())"
+        return "\(self.isComplete() ? self.getGoal() : self.progress!)/\(self.getGoal())"
     }
     
     func onWalkMissionUpdate() {
