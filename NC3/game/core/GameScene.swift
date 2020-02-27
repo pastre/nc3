@@ -145,7 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
         StorageFacade.instance.onCoinsReceived(self.player.getCoinCount())
         
         self.enemiesManager.clearAll()
-        self.player.reset()
+//        self.player.reset()
     
         self.updateCoinLabel()
         SpeedManager.instance.onGameOver()

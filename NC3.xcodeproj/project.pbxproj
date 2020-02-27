@@ -239,14 +239,11 @@
 		D7A93EEF23FB3BBF00C5845E /* model */ = {
 			isa = PBXGroup;
 			children = (
-				D734727823FB583A00012D8E /* AnimationProvider.swift */,
 				D7A93EF023FB3BBF00C5845E /* Background.swift */,
 				D7A93EF323FB3BBF00C5845E /* CoinFactory.swift */,
-				D7A93EFC23FB3BBF00C5845E /* ContactMask.swift */,
 				D7A93F0123FB3BBF00C5845E /* Player.swift */,
 				D7A93EFF23FB3BBF00C5845E /* SpawnCoordinator.swift */,
 				D7A93EF223FB3BBF00C5845E /* SpeedManager.swift */,
-				D7A93EF123FB3BBF00C5845E /* ZPositionManager.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -265,8 +262,11 @@
 		D7A93EF923FB3BBF00C5845E /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				D7A93EFA23FB3BBF00C5845E /* Utils.swift */,
+				D734727823FB583A00012D8E /* AnimationProvider.swift */,
 				D7A93EFB23FB3BBF00C5845E /* GaussianDistribution.swift */,
+				D7A93EFC23FB3BBF00C5845E /* ContactMask.swift */,
+				D7A93EFA23FB3BBF00C5845E /* Utils.swift */,
+				D7A93EF123FB3BBF00C5845E /* ZPositionManager.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";

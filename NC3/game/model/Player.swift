@@ -9,11 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class Player: GameObject, MissionUpdater {
-    
-    func onMissionMilestone() {
-        MissionEventBinder.instance.publish(notification: .walk)
-    }
+class Player: GameObject, MissionUpdater, GameEventListener {
     
     enum Animation {
         case walking
@@ -36,6 +32,8 @@ class Player: GameObject, MissionUpdater {
         
         self.stateMachine.enter(PlayerRunning.self)
         self.node.zPosition = ZPositionManager.PLAYER.rawValue
+        
+        GameEventBinder.instance.subscribe(self)
         
     }
     
@@ -63,7 +61,6 @@ class Player: GameObject, MissionUpdater {
         body.velocity.dy = clamp
     
         self.updatePlayerState(body.velocity.dy)
-        self.onMissionMilestone()
     }
     
     func updatePlayerState(_ dy: CGFloat) {
@@ -107,6 +104,25 @@ class Player: GameObject, MissionUpdater {
     func reset() {
         Player.self.walkedDistance = 0
         self.currentCoin = 0
+    }
+    
+    // MARK: GameEventListener
+    
+    func onGameStart() {
+        // Configure player for game to start
+    }
+    
+    
+    func onGameOver() {
+        self.onMissionMilestone()
+        self.reset()
+    }
+    
+    
+    // MARK: - MissionMilestone
+    
+    func onMissionMilestone() {
+        MissionEventBinder.instance.publish(notification: .walk)
     }
     
     // MARK: - Getters
