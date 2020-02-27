@@ -9,6 +9,8 @@
 import SpriteKit
 import GameplayKit
 
+let UPDATE_COIN = Notification.Name.init("updateCoinBora")
+
 class Player: GameObject, MissionUpdater, GameEventListener {
     
     enum Animation {
@@ -17,13 +19,14 @@ class Player: GameObject, MissionUpdater, GameEventListener {
     }
     
     var isJetpackOn = false
+    
     private static var walkedDistance: CGFloat = 0
+    private static var currentCoin: Int = 0
     
     let walkingSpeed = 100
     let maxVal: CGFloat = 225
     let minVal: CGFloat = -225
     
-    private static var currentCoin: Int = 0
     
     let stateMachine: GKStateMachine! = GKStateMachine(states: [PlayerRunning(), PlayerFlying(), PlayerFalling()])
     
@@ -136,5 +139,12 @@ class Player: GameObject, MissionUpdater, GameEventListener {
     
     override func getNodeName() -> String {
         return "player"
+    }
+    
+    static func receiveCoins(_ amount: Int) {
+        Player.currentCoin += amount
+        StorageFacade.instance.onCoinsReceived(amount)
+        MissionFacade.instance.refreshPlayer()
+        
     }
 }

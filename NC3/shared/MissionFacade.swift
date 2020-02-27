@@ -16,7 +16,7 @@ import Foundation
 class MissionFacade: MissionListener, ObservableObject {
     
     @Published var missions: [Mission]!
-    @Published var completedMissions: [Mission]?
+    @Published var coinReward: Int!
     
     static let instance = MissionFacade()
     var missionPool: MissionPool!
@@ -44,8 +44,14 @@ class MissionFacade: MissionListener, ObservableObject {
         self.updateMissionUI()
     }
     
+    func refreshPlayer() {
+        self.updateMissionUI()
+    }
+    
     func updateMissionUI() {
         self.missions = getMissions()
+        self.coinReward = Player.getCoinCount()
+        
         self.persistMissions()
         self.objectWillChange.send()
     }

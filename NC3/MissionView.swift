@@ -131,6 +131,7 @@ struct MissionView: View {
                         self.hasAnimated.toggle()
                         self.isReadyToSwap.toggle()
                         Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
+                            Player.receiveCoins(self.mission.getReward())
                             MissionFacade.instance.refreshMissions()
                             self.hasSwapped.toggle()
                         }
