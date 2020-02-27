@@ -16,6 +16,7 @@ import Foundation
 class MissionFacade: MissionListener, ObservableObject {
     
     @Published var missions: [Mission]!
+    @Published var completedMissions: [Mission]?
     
     static let instance = MissionFacade()
     var missionPool: MissionPool!
@@ -36,10 +37,14 @@ class MissionFacade: MissionListener, ObservableObject {
     
     func onUpdate() {
         self.missions = getMissions()
+        
+        self.updateMissionUI()
+    }
+    
+    func updateMissionUI() {
         self.persistMissions()
         self.objectWillChange.send()
     }
-    
     
     func persistMissions() {
         if let data = try? JSONEncoder().encode(self.missionPool) {
