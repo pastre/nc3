@@ -17,6 +17,7 @@ class Mission: Task {
         self.eventType = toEvent
         super.init(order: order, goal: goal, reward: reward)
         self.progress = 0
+        
         MissionEventBinder.instance.bind(class: self, to: toEvent)
     }
     
@@ -29,6 +30,9 @@ class Mission: Task {
         self.eventType = MissionEventBinder.Event(rawValue: eventType)!
         
         try super.init(from: decoder)
+        
+        
+        MissionEventBinder.instance.bind(class: self, to: self.eventType)
     }
     
     override func encode(to encoder: Encoder) throws {

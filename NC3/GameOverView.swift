@@ -91,7 +91,7 @@ struct GameOverView: View {
                                         HStack(alignment: .center){
                                             ViewWrapper.getText("\(mission.getDescription()).", size:20).foregroundColor(.white)
                                             
-                                            ViewWrapper.getText("(300/200)", size: 15).foregroundColor(.white)
+                                            ViewWrapper.getText("\(mission.getProgressDescription())", size: 15).foregroundColor(.white)
                                         }
                                         
                                         HStack(alignment: .center) {
