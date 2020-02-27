@@ -9,7 +9,11 @@
 import SpriteKit
 import GameplayKit
 
-class Player: GameObject {
+class Player: GameObject, MissionUpdater {
+    
+    func onMissionMilestone() {
+        MissionEventBinder.instance.publish(notification: .walk)
+    }
     
     enum Animation {
         case walking
@@ -17,7 +21,7 @@ class Player: GameObject {
     }
     
     var isJetpackOn = false
-    private var walkedDistance: CGFloat = 0
+    private static var walkedDistance: CGFloat = 0
     
     let walkingSpeed = 100
     let maxVal: CGFloat = 225
@@ -48,7 +52,7 @@ class Player: GameObject {
     override func update(_ deltaTime: TimeInterval) {
         let body = self.node.physicsBody!
         
-        self.walkedDistance += CGFloat(deltaTime) * SpeedManager.instance.getCurrentSpeed()
+        Player.self.walkedDistance += CGFloat(deltaTime) * SpeedManager.instance.getCurrentSpeed()
     
         if isJetpackOn {
             body.applyForce(CGVector(dx: 0, dy: 210))
@@ -59,6 +63,7 @@ class Player: GameObject {
         body.velocity.dy = clamp
     
         self.updatePlayerState(body.velocity.dy)
+        self.onMissionMilestone()
     }
     
     func updatePlayerState(_ dy: CGFloat) {
@@ -100,13 +105,13 @@ class Player: GameObject {
     }
     
     func reset() {
-        self.walkedDistance = 0
+        Player.self.walkedDistance = 0
         self.currentCoin = 0
     }
     
     // MARK: - Getters
-    func getWalkingDistance() -> Int {
-        return Int(self.walkedDistance / 50)
+    static func getWalkingDistance() -> Int {
+        return Int(Player.self.walkedDistance / 50)
     }
     
     func getCoinCount() -> Int {

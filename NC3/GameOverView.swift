@@ -135,9 +135,13 @@ struct GameOverView: View {
             .padding(.top, 20)
         
             
-        }
+        }.onAppear(perform: self.debugMe)
         
         
+    }
+    
+    func debugMe() {
+     print("debug me pls")
     }
     
     func goHome() {

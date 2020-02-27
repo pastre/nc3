@@ -15,6 +15,8 @@ import Foundation
 
 class MissionFacade: MissionListener, ObservableObject {
     
+    @Published var missions: [Mission]!
+    
     static let instance = MissionFacade()
     var missionPool: MissionPool!
     
@@ -22,6 +24,9 @@ class MissionFacade: MissionListener, ObservableObject {
         MissionEventBinder.instance.listen(self)
         
         self.missionPool = MissionFacade.loadMissions() ?? MissionPool()
+        
+        self.persistMissions()
+        self.missions = self.getMissions()
     }
     
     func getMissions() -> [Mission] {
@@ -32,9 +37,9 @@ class MissionFacade: MissionListener, ObservableObject {
     func onUpdate() {
         self.missions = getMissions()
         self.persistMissions()
+        self.objectWillChange.send()
     }
     
-    @Published var missions: [Mission]!
     
     func persistMissions() {
         if let data = try? JSONEncoder().encode(self.missionPool) {
@@ -45,8 +50,10 @@ class MissionFacade: MissionListener, ObservableObject {
     
     private static func loadMissions() -> MissionPool? {
         if let data = UserDefaults.standard.data(forKey: "missionPool") {
-            print("[Persistance] Loaded missions from storage")
-            return try? JSONDecoder().decode(MissionPool.self, from: data)
+            
+            let loaded = try? JSONDecoder().decode(MissionPool.self, from: data)
+            print("[Persistance] Loaded missions from storage", loaded)
+            return loaded
         }
         
         return nil

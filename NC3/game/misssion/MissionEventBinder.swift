@@ -26,7 +26,7 @@ class MissionEventBinder {
     
     
     func bind(class c: Mission, to: Event){
-        self.center.addObserver(self, selector: #selector(c.bind), name: to.getNotificationName(), object: nil)
+        self.center.addObserver(c, selector: #selector(c.onEvent), name: to.getNotificationName(), object: nil)
     }
     
     func publish(notification: Event, _ payload: [AnyHashable : Any]? = nil) {
@@ -35,6 +35,6 @@ class MissionEventBinder {
     }
     
     func listen(_ clasz: MissionListener) {
-        self.center.addObserver(self, selector: #selector(clasz.onUpdate), name: Event.all.getNotificationName(), object: nil)
+        self.center.addObserver(clasz, selector: #selector(clasz.onUpdate), name: Event.all.getNotificationName(), object: nil)
     }
 }

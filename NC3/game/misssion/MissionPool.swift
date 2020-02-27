@@ -22,17 +22,20 @@ class MissionPool: Encodable, Decodable {
         ]
     }
     
-    
-    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.missions = try container.decode([Mission].self, forKey: .missions)
     }
     
-    func persistMissions() {
+    
+    func encode(to encoder: Encoder) throws {
         
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(self.missions, forKey: .missions)
     }
+    
     
     var missions: [Mission]!
 }

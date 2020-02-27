@@ -11,10 +11,13 @@ import Foundation
 class Mission: Task {
     
     var progress: Int!
-    
-    override init(order: String?, goal: ClosedRange<Int>, reward: Int?) {
+    var eventType: MissionEventBinder.Event
+
+    init(order: String?, goal: ClosedRange<Int>, reward: Int?, bind toEvent: MissionEventBinder.Event) {
+        self.eventType = toEvent
         super.init(order: order, goal: goal, reward: reward)
-        self.bind()
+    
+        MissionEventBinder.instance.bind(class: self, to: toEvent)
     }
     
     required init(from decoder: Decoder) throws {
@@ -25,42 +28,36 @@ class Mission: Task {
         self.progress = try container.decode(Int.self, forKey: .progress)
     }
     
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        
+        
+        try container.encode(self.progress, forKey: .progress)
+    }
     
-    
-    @objc func bind() {
+    @objc func onEvent() {
         
     }
-    
-    func getDescription() -> String{
-        fatalError()
-    }
-}
-
-class WalkMisson: Mission {
-    
-    init() {
-        super.init(order: "Walk", goal: 100...200, reward: 2)
-        self.progress = 0
-    }
-    
-    required init(from decoder: Decoder) throws {
-        try super.init(from: decoder)
-    }
-    
-    override func bind() {
-        MissionEventBinder.instance.bind(class: self, to: .walk)
-    }
-    
     
     override func isComplete() -> Bool {
         return self.progress == self.getGoal()
     }
     
-    override func getDescription() -> String{
-        return "\(self.order!) \(self.getGoal())"
-    }
- 
+    func getDescription() -> String{
+           return "\(self.order!) \(self.getGoal())"
+       }
+    
     func getProgressDescription() -> String {
         return "\(self.progress!)/\(self.getGoal())"
     }
+    
+    func onWalkMissionUpdate() {
+        let walkedDistance = Player.getWalkingDistance()
+        
+        self.progress += walkedDistance
+    
+    }
 }
+

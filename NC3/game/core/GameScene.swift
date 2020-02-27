@@ -104,7 +104,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
         self.gameObjects.forEach { $0.update(deltaTime) }
         SpeedManager.instance.update(deltaTime)
         
-        self.scoreLabel.text = "Score: \(String(format: "%04d", self.player.getWalkingDistance()))m"
+        self.scoreLabel.text = "Score: \(String(format: "%04d", Player.getWalkingDistance()))m"
             
     }
 
