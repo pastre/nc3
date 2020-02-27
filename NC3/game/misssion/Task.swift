@@ -17,7 +17,7 @@ class Task: Identifiable, Encodable, Decodable {
         case computedGoal = "computedGoal"
         
         case progress = "progress"
-        case onEvent = "onEvent"
+        case eventType = "eventType"
     }
     
     var order: String!

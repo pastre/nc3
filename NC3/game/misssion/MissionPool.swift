@@ -16,9 +16,11 @@ class MissionPool: Encodable, Decodable {
     
      init() {
         self.missions = [
-            WalkMisson(),
-            WalkMisson(),
-            WalkMisson(),
+            
+            Mission.init(order: "Walk", goal: 100...200, reward: 2, bind: .walk),
+            Mission.init(order: "Walk", goal: 100...200, reward: 2, bind: .walk),
+            Mission.init(order: "Walk", goal: 100...200, reward: 2, bind: .walk),
+            
         ]
     }
     
