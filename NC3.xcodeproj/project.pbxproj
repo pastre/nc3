@@ -22,7 +22,7 @@
 		D77C58F623FF1B4600CFC828 /* ViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */; };
 		D7A4ADA223FF2EE700E5D18A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA123FF2EE700E5D18A /* Task.swift */; };
 		D7A4ADA423FF2F1F00E5D18A /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA323FF2F1F00E5D18A /* Mission.swift */; };
-		D7A4ADA623FF2F9800E5D18A /* TaskGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA523FF2F9800E5D18A /* TaskGenerator.swift */; };
+		D7A4ADA623FF2F9800E5D18A /* MissionPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA523FF2F9800E5D18A /* MissionPool.swift */; };
 		D7A4ADA824000E5E00E5D18A /* MissionEventBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA724000E5E00E5D18A /* MissionEventBinder.swift */; };
 		D7A4ADAA2400112900E5D18A /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA92400112900E5D18A /* MissionView.swift */; };
 		D7A4ADAC2400124C00E5D18A /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADAB2400124C00E5D18A /* ButtonView.swift */; };
@@ -81,7 +81,7 @@
 		D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWrapper.swift; sourceTree = "<group>"; };
 		D7A4ADA123FF2EE700E5D18A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D7A4ADA323FF2F1F00E5D18A /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
-		D7A4ADA523FF2F9800E5D18A /* TaskGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGenerator.swift; sourceTree = "<group>"; };
+		D7A4ADA523FF2F9800E5D18A /* MissionPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPool.swift; sourceTree = "<group>"; };
 		D7A4ADA724000E5E00E5D18A /* MissionEventBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionEventBinder.swift; sourceTree = "<group>"; };
 		D7A4ADA92400112900E5D18A /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		D7A4ADAB2400124C00E5D18A /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 			children = (
 				D7A4ADA123FF2EE700E5D18A /* Task.swift */,
 				D7A4ADA323FF2F1F00E5D18A /* Mission.swift */,
-				D7A4ADA523FF2F9800E5D18A /* TaskGenerator.swift */,
+				D7A4ADA523FF2F9800E5D18A /* MissionPool.swift */,
 				D7A4ADA724000E5E00E5D18A /* MissionEventBinder.swift */,
 			);
 			path = misssion;
@@ -431,7 +431,7 @@
 				D734727523FB3C1200012D8E /* GameAdapter.swift in Sources */,
 				D7A93F2923FB3BBF00C5845E /* Pickable.swift in Sources */,
 				D7A93F2723FB3BBF00C5845E /* Player.swift in Sources */,
-				D7A4ADA623FF2F9800E5D18A /* TaskGenerator.swift in Sources */,
+				D7A4ADA623FF2F9800E5D18A /* MissionPool.swift in Sources */,
 				D7291DC523FC9EC300E04B6D /* HomeView.swift in Sources */,
 				D7A93F2623FB3BBF00C5845E /* GameObject.swift in Sources */,
 				D7A93F3723FB3BBF00C5845E /* GameViewController.swift in Sources */,
