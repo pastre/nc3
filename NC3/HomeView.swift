@@ -93,7 +93,12 @@ struct HomeView: View {
                 .frame(height: r.size.height * 0.75)
                 
                 
-            }.edgesIgnoringSafeArea(.all)
+            }
+            .edgesIgnoringSafeArea(.all)
+        
+            .sheet(isPresented: self.$aBadernaEstaLiberada) {
+                GameCenterView()
+            }
             
             
         
