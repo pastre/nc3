@@ -94,11 +94,10 @@ struct HomeView: View {
                 
                 
             }
-            .edgesIgnoringSafeArea(.all)
-        
             .sheet(isPresented: self.$aBadernaEstaLiberada) {
-                GameCenterView()
+                GameCenterView(isShowing: self.$aBadernaEstaLiberada)
             }
+            .edgesIgnoringSafeArea(.all)
             
             
         
