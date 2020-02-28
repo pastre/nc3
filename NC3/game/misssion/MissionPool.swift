@@ -17,9 +17,9 @@ class MissionPool: Encodable, Decodable {
      init() {
         self.missions = [
             
-            Mission.init(order: "Walk", goal: 100...200, reward: 2, bind: .walk),
-            Mission.init(order: "Walk", goal: 100...200, reward: 2, bind: .walk),
-            Mission.init(order: "Walk", goal: 100...200, reward: 2, bind: .walk),
+            getNewMission(),
+            getNewMission(),
+            getNewMission(),
             
         ]
     }
@@ -42,10 +42,15 @@ class MissionPool: Encodable, Decodable {
     func refreshCompletedMissions() {
         for (i, mission) in self.missions.enumerated() {
             if mission.isComplete() {
-                self.missions[i] = Mission.init(order: "Walk", goal: 100...200, reward: 2, bind: .walk)
+                self.missions[i] = self.getNewMission()
             }
         }
         
+    }
+    
+    // TODO: Mudar isso pra um factory
+    func getNewMission() -> Mission {
+        return  Mission.init(order: "Walk", goal: 150...500, reward: 2, bind: .walk)
     }
     
     var missions: [Mission]!
