@@ -143,6 +143,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D74E3D6A2409BA920034D7A8 /* gamecenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = gamecenter;
+			sourceTree = "<group>";
+		};
 		D764992123FC699100AF28F9 /* shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +205,7 @@
 			children = (
 				D764992123FC699100AF28F9 /* shared */,
 				D7A93EEE23FB3B7500C5845E /* game */,
+				D74E3D6A2409BA920034D7A8 /* gamecenter */,
 				D7A4ADAB2400124C00E5D18A /* ButtonView.swift */,
 				D7A93EDE23FB388800C5845E /* ContentView.swift */,
 				D7291DC623FD751C00E04B6D /* GameOverView.swift */,

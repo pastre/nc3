@@ -12,133 +12,92 @@ import Combine
 struct HomeView: View {
     
     @State var isCoinShop: Bool = true
+    @State var aBadernaEstaLiberada = false
+    
     
     var body: some View {
         
         GeometryReader { r in
             
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
-                    self.getCoinCount(r.size)
+                    self.getCoinCount(r.size).padding(.leading, 20)
                     Spacer()
                     HStack(alignment: .top, spacing: 40) {
-                        Spacer()
-    
+                        
                         HStack(spacing: 20) {
-    
-    
+
+                            Spacer()
+                            
                             Button(action: {
-    
+                                self.aBadernaEstaLiberada.toggle()
                             }) {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .foregroundColor(Color("blueFill"))
-                                    Image("crown").foregroundColor(.white)
+                                GeometryReader {zReader in
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .foregroundColor(Color("blueFill"))
+                                            .offset(x:0, y: -20)
+                                        Image("crown")
+                                            .resizable()
+                                        .scaledToFit()
+                                            .frame(width: zReader.size.width * 0.8)
+                                            .foregroundColor(.white)
+                                        
+                                    }.frame(width: r.size.width * 0.1)
                                 }
                             }
-    
-    
-    
+                            
                             Button(action: {
-    
+                                
                             }) {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .foregroundColor(Color("blueFill"))
-                                    Image("crown").foregroundColor(.white)
+                                GeometryReader {zReader in
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .foregroundColor(Color("blueFill"))
+                                            .offset(x:0, y: -20)
+                                        Image("gear")
+                                            .resizable()
+                                        .scaledToFit()
+                                            .frame(width: zReader.size.width * 0.75)
+                                            .foregroundColor(.white)
+                                        
+                                    }.frame(width: r.size.width * 0.1)
                                 }
                             }
+                            
+
+                            
                         }
-    
+                        
                         Spacer()
-    
                     }
                     .padding(.top, -20)
-                    .padding()
+                    
+                    .frame(width: r.size.width * 0.3)
                 }
                 
-                GeometryReader { rr in
-                    HStack {
+                HStack {
+                    
+                    GeometryReader { rr in
                         self.getShop(rr.size, r.size)
-                        
-                        Spacer()
-                        Button(action: {
-                            GameEventBinder.instance.publish(event: .gameStart)
-                        }) {
-                            Text("Tap to play")
-                                .font(.system(size: 60, weight: .heavy, design: .rounded))
-                                .foregroundColor(Color("blueFill"))
-                        }
-                        
-                        Spacer()
                     }
+                    Button(action: {
+                        GameEventBinder.instance.publish(event: .gameStart)
+                    }) {
+                        Text("Tap to play")
+                            .font(.system(size: 60, weight: .heavy, design: .rounded))
+                            .foregroundColor(Color("blueFill"))
+                    }.frame(width: r.size.width * 0.6)
+                    
                 }
+                .frame(height: r.size.height * 0.75)
+                
                 
             }.edgesIgnoringSafeArea(.all)
             
             
-//            HStack(alignment: .center) {
-//
-//                VStack(alignment: .leading) {
-//
-//                    self.getCoinCount(r.size)
-//                        .padding([.top, .leading], 20)
-//                    GeometryReader { readerzinho in
-//                        self.getShop(readerzinho.size, r.size)
-//                    }
-//
-//                }
-//                .frame(width: r.size.width * 0.35)
-//                Spacer()
-//                Button(action: {
-//                    GameEventBinder.instance.publish(event: .gameStart)
-//                }) {
-//                    Text("Tap to play")
-//                        .font(.system(size: 60, weight: .heavy, design: .rounded))
-//                        .foregroundColor(Color("blueFill"))
-//                }
-//
-//
-//                Spacer()
-//
-//
-//                HStack(alignment: .top, spacing: 40) {
-//                    Spacer()
-//
-//                    HStack(spacing: 20) {
-//
-//
-//                        Button(action: {
-//
-//                        }) {
-//                            ZStack {
-//                                RoundedRectangle(cornerRadius: 8)
-//                                    .foregroundColor(Color("blueFill"))
-//                                Image("crown").foregroundColor(.white)
-//                            }
-//                        }
-//
-//
-//
-//                        Button(action: {
-//
-//                        }) {
-//                            ZStack {
-//                                RoundedRectangle(cornerRadius: 8)
-//                                    .foregroundColor(Color("blueFill"))
-//                                Image("crown").foregroundColor(.white)
-//                            }
-//                        }
-//                    }
-//
-//                    Spacer()
-//
-//                }
-//                .padding(.top, -20)
-//                .padding()
-//
-//
-//            }.edgesIgnoringSafeArea(.all)
+        
+            
         }
     }
     
