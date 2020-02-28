@@ -58,9 +58,10 @@ struct GameCenterView: View {
         let vc = GameCenterWrapperViewController()
         
         gkVC.viewState = .leaderboards
+        gkVC.leaderboardIdentifier = GameKitFacade.Leaderboards.distance.rawValue
+        
         vc.vc = gkVC
         
-
         return vc
 
     }

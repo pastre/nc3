@@ -117,6 +117,7 @@ class Player: GameObject, MissionUpdater, GameEventListener {
     
     
     func onGameOver() {
+        StorageFacade.instance.updateHighScore(to: Player.getWalkingDistance())
         self.onMissionMilestone()
     }
     

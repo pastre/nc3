@@ -17,6 +17,7 @@
 		D74E3D6C2409BB390034D7A8 /* GameCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E3D6B2409BB380034D7A8 /* GameCenterView.swift */; };
 		D74E3D6F2409BD730034D7A8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74E3D6E2409BD730034D7A8 /* GameKit.framework */; };
 		D74E3D712409CFB90034D7A8 /* GameCenterWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E3D702409CFB90034D7A8 /* GameCenterWrapperViewController.swift */; };
+		D74E3D732409DA9E0034D7A8 /* GameCenterFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E3D722409DA9E0034D7A8 /* GameCenterFacade.swift */; };
 		D764991A23FC5AFA00AF28F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D764991823FC5AFA00AF28F9 /* Assets.xcassets */; };
 		D764991E23FC5D3800AF28F9 /* CandySet.sks in Resources */ = {isa = PBXBuildFile; fileRef = D764991D23FC5D3800AF28F9 /* CandySet.sks */; };
 		D764992023FC67BC00AF28F9 /* GameStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D764991F23FC67BC00AF28F9 /* GameStates.swift */; };
@@ -82,6 +83,7 @@
 		D74E3D6B2409BB380034D7A8 /* GameCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterView.swift; sourceTree = "<group>"; };
 		D74E3D6E2409BD730034D7A8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		D74E3D702409CFB90034D7A8 /* GameCenterWrapperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterWrapperViewController.swift; sourceTree = "<group>"; };
+		D74E3D722409DA9E0034D7A8 /* GameCenterFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterFacade.swift; sourceTree = "<group>"; };
 		D764991823FC5AFA00AF28F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D764991D23FC5D3800AF28F9 /* CandySet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CandySet.sks; sourceTree = "<group>"; };
 		D764991F23FC67BC00AF28F9 /* GameStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStates.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				D7291DC223FC9A3300E04B6D /* ObservableGameListener.swift */,
 				D77539F123FDE7D900DE55A3 /* Storage.swift */,
 				D7A4ADAD24005D7B00E5D18A /* MissionFacade.swift */,
+				D74E3D722409DA9E0034D7A8 /* GameCenterFacade.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				D7A4ADAA2400112900E5D18A /* MissionView.swift in Sources */,
 				D7A93F2F23FB3BBF00C5845E /* PenguinEnemyManager.swift in Sources */,
 				D79A55BA24080E0B0003859E /* MissionCompleteTextModifier.swift in Sources */,
+				D74E3D732409DA9E0034D7A8 /* GameCenterFacade.swift in Sources */,
 				D7A93F2423FB3BBF00C5845E /* Interactable.swift in Sources */,
 				D764992023FC67BC00AF28F9 /* GameStates.swift in Sources */,
 				D77539F223FDE7D900DE55A3 /* Storage.swift in Sources */,

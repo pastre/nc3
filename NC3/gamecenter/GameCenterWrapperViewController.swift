@@ -28,6 +28,7 @@ class GameCenterWrapperViewController: UIViewController, GKGameCenterControllerD
     override func viewDidAppear(_ animated: Bool) {
         self.vc.delegate = self
         self.vc.gameCenterDelegate = self
+        
         self.present(self.vc, animated: true, completion: nil)
     }
     

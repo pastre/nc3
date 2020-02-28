@@ -11,16 +11,20 @@ import Foundation
 class StorageFacade {
     enum StorageKeys: String {
         case coinAmount = "coinAmount"
+        case highScore = "highScore"
     }
     
     var playerBank: PlayerBank!
+    var highScore:  Int!
     
     static let instance = StorageFacade()
     let defaults = UserDefaults.standard
     
     private init() {
         let coinAmount = defaults.integer(forKey: StorageKeys.coinAmount.rawValue)
+        let highScore = defaults.integer(forKey: StorageKeys.highScore.rawValue)
 
+        self.highScore = highScore
         self.playerBank = PlayerBank(coins: coinAmount)
         
     }
@@ -33,6 +37,19 @@ class StorageFacade {
     
     func getCoins() -> Int {
         return self.playerBank.coins
+    }
+    
+    func updateHighScore(to value: Int) {
+        if value > self.highScore {
+            self.defaults.set(value, forKey: StorageKeys.highScore.rawValue)
+            GameKitFacade.onHighScore(value)
+        }
+        GameKitFacade.onHighScore(value)
+        self.highScore = self.loadHighscore()
+    }
+    
+    func loadHighscore() -> Int {
+        return defaults.integer(forKey: StorageKeys.highScore.rawValue)
     }
     
     func updatePersistance(){

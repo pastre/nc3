@@ -78,6 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
         self.coinsLabel.isHidden = true
     }
     
+    
     func configureStartGame() {
         
         self.stateMachine.enter(PlayingState.self)
