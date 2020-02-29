@@ -30,16 +30,11 @@ struct CoinShopView: View {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255)).padding(.leading)
                         HStack {
-                            Image("yellowAlien")
-                                .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                                .resizable()
-                                .scaledToFit()
-                            
                             VStack {
                                 Spacer()
-                                ViewWrapper.getText("asd", size: 16).foregroundColor(.white)
+                                ViewWrapper.getText(self.appstoreListener.products![0].localizedTitle, size: 16).foregroundColor(.white)
                                 Spacer()
-                                ViewWrapper.getText("10000", size: 16)
+                                ViewWrapper.getText("$\(self.appstoreListener.products![0].price)", size: 16)
                                     .foregroundColor(Color("goldColor"))
                                 Spacer()
                             }
@@ -52,21 +47,14 @@ struct CoinShopView: View {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255))
                         HStack {
-                            
-                            Image("pinkAlien")
-                                .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                                .resizable()
-                                .scaledToFit()
-                            //                                                .padding()
-                            
-                            
                             VStack {
                                 Spacer()
-                                ViewWrapper.getText("Buy me", size: 16).foregroundColor(.white)
+                                ViewWrapper.getText(self.appstoreListener.products![1].localizedTitle, size: 16).foregroundColor(.white)
                                 Spacer()
-                                ViewWrapper.getText("10000", size: 16)
+                                ViewWrapper.getText("$\(self.appstoreListener.products![1].price)", size: 16)
                                     .foregroundColor(Color("goldColor"))
                                 Spacer()
+
                             }
                         }.offset(x: -10, y: 0)
                     }.offset(x: -10, y: 0)
@@ -80,20 +68,15 @@ struct CoinShopView: View {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255)).padding(.leading)
                         HStack {
-                            Image("greenAlien")
-                                .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                                .resizable()
-                                .scaledToFit()
-                            //                                                .padding()
-                            
                             
                             VStack {
                                 Spacer()
-                                ViewWrapper.getText("asd", size: 16).foregroundColor(.white)
+                                ViewWrapper.getText(self.appstoreListener.products![2].localizedTitle, size: 16).foregroundColor(.white)
                                 Spacer()
-                                ViewWrapper.getText("10000", size: 16)
+                                ViewWrapper.getText("$\(self.appstoreListener.products![2].price)", size: 16)
                                     .foregroundColor(Color("goldColor"))
                                 Spacer()
+
                             }
                         }
                     }
@@ -104,18 +87,12 @@ struct CoinShopView: View {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255))
                         HStack {
-                            Image("brownAlien")
-                                .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                                .resizable()
-                                .scaledToFit()
-                            //                                                .padding()
-                            
                             
                             VStack {
                                 Spacer()
-                                ViewWrapper.getText("Buy me", size: 16).foregroundColor(.white)
+                                ViewWrapper.getText(self.appstoreListener.products![3].localizedTitle, size: 16).foregroundColor(.white)
                                 Spacer()
-                                ViewWrapper.getText("10000", size: 16)
+                                ViewWrapper.getText("$\(self.appstoreListener.products![3].price)", size: 16)
                                     .foregroundColor(Color("goldColor"))
                                 Spacer()
                             }
