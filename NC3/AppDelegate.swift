@@ -7,17 +7,17 @@
 //
 
 import UIKit
+import StoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+class AppDelegate: UIResponder, UIApplicationDelegate {    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // Loads missions before game starts
         let _ = MissionFacade.instance
+        // Loads IAP from appstore before game starts
+        StoreManager.instance.fire()
         
         return true
     }

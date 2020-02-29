@@ -18,8 +18,6 @@ struct GameViewAdapter: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: GameViewController, context: UIViewControllerRepresentableContext<GameViewAdapter>) {
         
     }
-    
-    
 }
 
 struct GameViewAdapter_Previews: PreviewProvider {
