@@ -25,9 +25,9 @@ struct SkinShopView: View {
                             
                             VStack {
                                 Spacer()
-                                ViewWrapper.getText("asd", size: 16).foregroundColor(.white)
+                                ViewWrapper.getText("Canvy", size: 16).foregroundColor(.white)
                                 Spacer()
-                                ViewWrapper.getText("10000", size: 16)
+                                ViewWrapper.getText("10.000", size: 16)
                                     .foregroundColor(Color("goldColor"))
                                 Spacer()
                             }
@@ -50,9 +50,9 @@ struct SkinShopView: View {
                             
                             VStack {
                                 Spacer()
-                                ViewWrapper.getText("Buy me", size: 16).foregroundColor(.white)
+                                ViewWrapper.getText("Bloxy", size: 16).foregroundColor(.white)
                                 Spacer()
-                                ViewWrapper.getText("10000", size: 16)
+                                ViewWrapper.getText("10.000", size: 16)
                                     .foregroundColor(Color("goldColor"))
                                 Spacer()
                             }
@@ -77,9 +77,9 @@ struct SkinShopView: View {
                             
                             VStack {
                                 Spacer()
-                                ViewWrapper.getText("asd", size: 16).foregroundColor(.white)
+                                ViewWrapper.getText("Jumpzy", size: 16).foregroundColor(.white)
                                 Spacer()
-                                ViewWrapper.getText("10000", size: 16)
+                                ViewWrapper.getText("10.000", size: 16)
                                     .foregroundColor(Color("goldColor"))
                                 Spacer()
                             }
@@ -101,9 +101,9 @@ struct SkinShopView: View {
                             
                             VStack {
                                 Spacer()
-                                ViewWrapper.getText("Buy me", size: 16).foregroundColor(.white)
+                                ViewWrapper.getText("Paxy", size: 16).foregroundColor(.white)
                                 Spacer()
-                                ViewWrapper.getText("10000", size: 16)
+                                ViewWrapper.getText("10.000", size: 16)
                                     .foregroundColor(Color("goldColor"))
                                 Spacer()
                             }

@@ -12,9 +12,11 @@ class StorageFacade {
     enum StorageKeys: String {
         case coinAmount = "coinAmount"
         case highScore = "highScore"
+        case skinManager = "playerBank" 
     }
     
     var playerBank: PlayerBank!
+    var skinManager: SkinManager!
     var highScore:  Int!
     
     static let instance = StorageFacade()
@@ -23,6 +25,11 @@ class StorageFacade {
     private init() {
         let coinAmount = defaults.integer(forKey: StorageKeys.coinAmount.rawValue)
         let highScore = defaults.integer(forKey: StorageKeys.highScore.rawValue)
+        if let data = defaults.data(forKey: StorageKeys.skinManager.rawValue), let manager = try? JSONDecoder().decode(SkinManager.self, from: data) {
+            self.skinManager = manager
+        } else {
+            self.skinManager = SkinManager()
+        }
 
         self.highScore = highScore
         self.playerBank = PlayerBank(coins: coinAmount)
@@ -54,6 +61,10 @@ class StorageFacade {
     
     func updatePersistance(){
         self.defaults.set(self.playerBank.coins, forKey: StorageKeys.coinAmount.rawValue)
+        
+        if let data = try? JSONEncoder().encode(self.skinManager) {
+            self.defaults.set(data, forKey: StorageKeys.skinManager.rawValue)
+        }
     }
 }
 
