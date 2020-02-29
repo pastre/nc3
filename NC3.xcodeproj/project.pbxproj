@@ -180,6 +180,7 @@
 		D764992123FC699100AF28F9 /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				D74E3D6A2409BA920034D7A8 /* gamecenter */,
 				D734727423FB3C1200012D8E /* GameAdapter.swift */,
 				D764992223FC699800AF28F9 /* GameBridge.swift */,
 				D7291DC223FC9A3300E04B6D /* ObservableGameListener.swift */,
@@ -201,6 +202,28 @@
 				D734727623FB3EE800012D8E /* Game.storyboard */,
 			);
 			path = core;
+			sourceTree = "<group>";
+		};
+		D788C38B240AD7410057D923 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				D7A4ADAB2400124C00E5D18A /* ButtonView.swift */,
+				D74E3D782409EA820034D7A8 /* CoinShopView.swift */,
+				D77539ED23FDCE4300DE55A3 /* HomeButtonView.swift */,
+				D7A4ADA92400112900E5D18A /* MissionView.swift */,
+				D74E3D762409E8F70034D7A8 /* SkinShopView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		D788C38C240AD7560057D923 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				D79A55B924080E0B0003859E /* MissionCompleteTextModifier.swift */,
+				D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */,
+				D74E3D68240944E50034D7A8 /* MyButtonStyle.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		D7A4ADA023FF2EC700E5D18A /* misssion */ = {
@@ -236,15 +259,11 @@
 			children = (
 				D764992123FC699100AF28F9 /* shared */,
 				D7A93EEE23FB3B7500C5845E /* game */,
-				D74E3D6A2409BA920034D7A8 /* gamecenter */,
-				D7A4ADAB2400124C00E5D18A /* ButtonView.swift */,
+				D788C38C240AD7560057D923 /* utils */,
+				D788C38B240AD7410057D923 /* view */,
 				D7A93EDE23FB388800C5845E /* ContentView.swift */,
 				D7291DC623FD751C00E04B6D /* GameOverView.swift */,
 				D7291DC423FC9EC300E04B6D /* HomeView.swift */,
-				D77539ED23FDCE4300DE55A3 /* HomeButtonView.swift */,
-				D7A4ADA92400112900E5D18A /* MissionView.swift */,
-				D79A55B924080E0B0003859E /* MissionCompleteTextModifier.swift */,
-				D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */,
 				D7A93EDA23FB388800C5845E /* AppDelegate.swift */,
 				D7A93EDC23FB388800C5845E /* SceneDelegate.swift */,
 				D7A93EE523FB388A00C5845E /* LaunchScreen.storyboard */,
@@ -252,9 +271,6 @@
 				D7A93EE223FB388A00C5845E /* Preview Content */,
 				D764991823FC5AFA00AF28F9 /* Assets.xcassets */,
 				D764991D23FC5D3800AF28F9 /* CandySet.sks */,
-				D74E3D68240944E50034D7A8 /* MyButtonStyle.swift */,
-				D74E3D762409E8F70034D7A8 /* SkinShopView.swift */,
-				D74E3D782409EA820034D7A8 /* CoinShopView.swift */,
 			);
 			path = NC3;
 			sourceTree = "<group>";
