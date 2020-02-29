@@ -130,7 +130,7 @@ struct HomeView: View {
                     ViewWrapper.getText("Shop").foregroundColor(.white)
                     Spacer()
                     
-                    SkinShopView()
+                    CoinShopView()
                     
                     Divider()
                     

@@ -20,6 +20,7 @@
 		D74E3D732409DA9E0034D7A8 /* GameCenterFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E3D722409DA9E0034D7A8 /* GameCenterFacade.swift */; };
 		D74E3D752409E6340034D7A8 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E3D742409E6340034D7A8 /* StoreManager.swift */; };
 		D74E3D772409E8F70034D7A8 /* SkinShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E3D762409E8F70034D7A8 /* SkinShopView.swift */; };
+		D74E3D792409EA820034D7A8 /* CoinShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E3D782409EA820034D7A8 /* CoinShopView.swift */; };
 		D764991A23FC5AFA00AF28F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D764991823FC5AFA00AF28F9 /* Assets.xcassets */; };
 		D764991E23FC5D3800AF28F9 /* CandySet.sks in Resources */ = {isa = PBXBuildFile; fileRef = D764991D23FC5D3800AF28F9 /* CandySet.sks */; };
 		D764992023FC67BC00AF28F9 /* GameStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D764991F23FC67BC00AF28F9 /* GameStates.swift */; };
@@ -88,6 +89,7 @@
 		D74E3D722409DA9E0034D7A8 /* GameCenterFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterFacade.swift; sourceTree = "<group>"; };
 		D74E3D742409E6340034D7A8 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		D74E3D762409E8F70034D7A8 /* SkinShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinShopView.swift; sourceTree = "<group>"; };
+		D74E3D782409EA820034D7A8 /* CoinShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinShopView.swift; sourceTree = "<group>"; };
 		D764991823FC5AFA00AF28F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D764991D23FC5D3800AF28F9 /* CandySet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CandySet.sks; sourceTree = "<group>"; };
 		D764991F23FC67BC00AF28F9 /* GameStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStates.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				D764991D23FC5D3800AF28F9 /* CandySet.sks */,
 				D74E3D68240944E50034D7A8 /* MyButtonStyle.swift */,
 				D74E3D762409E8F70034D7A8 /* SkinShopView.swift */,
+				D74E3D782409EA820034D7A8 /* CoinShopView.swift */,
 			);
 			path = NC3;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				D7291DC323FC9A3300E04B6D /* ObservableGameListener.swift in Sources */,
 				D734727923FB583A00012D8E /* AnimationProvider.swift in Sources */,
 				D77539EE23FDCE4300DE55A3 /* HomeButtonView.swift in Sources */,
+				D74E3D792409EA820034D7A8 /* CoinShopView.swift in Sources */,
 				D74E3D752409E6340034D7A8 /* StoreManager.swift in Sources */,
 				D7A93F2823FB3BBF00C5845E /* CoinNode.swift in Sources */,
 				D7A93F2C23FB3BBF00C5845E /* GameScene.swift in Sources */,
