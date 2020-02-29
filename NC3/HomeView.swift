@@ -19,7 +19,7 @@ struct HomeView: View {
         
         GeometryReader { r in
             
-            VStack(spacing: 0) {
+            VStack(spacing: 10) {
                 HStack {
                     self.getCoinCount(r.size).padding(.leading, 20)
                     Spacer()
@@ -130,7 +130,11 @@ struct HomeView: View {
                     ViewWrapper.getText("Shop").foregroundColor(.white)
                     Spacer()
                     
-                    CoinShopView()
+                    if self.isCoinShop {
+                        CoinShopView()
+                    } else {
+                        SkinShopView()
+                    }
                     
                     Divider()
                     

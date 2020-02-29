@@ -33,9 +33,12 @@ struct CoinShopView: View {
                             VStack {
                                 Spacer()
                                 ViewWrapper.getText(self.appstoreListener.products![0].localizedTitle, size: 16).foregroundColor(.white)
-                                Spacer()
+//                                Spacer()
+                                
+                                ViewWrapper.getText(self.appstoreListener.products![0].localizedDescription, size: 16).foregroundColor(Color("goldColor"))
+//                                Spacer()
                                 ViewWrapper.getText("$\(self.appstoreListener.products![0].price)", size: 16)
-                                    .foregroundColor(Color("goldColor"))
+                                    .foregroundColor(Color.green)
                                 Spacer()
                             }
                         }
@@ -50,9 +53,12 @@ struct CoinShopView: View {
                             VStack {
                                 Spacer()
                                 ViewWrapper.getText(self.appstoreListener.products![1].localizedTitle, size: 16).foregroundColor(.white)
-                                Spacer()
+//                                Spacer()
+                                
+                                ViewWrapper.getText(self.appstoreListener.products![1].localizedDescription, size: 16).foregroundColor(Color("goldColor"))
+//                                Spacer()
                                 ViewWrapper.getText("$\(self.appstoreListener.products![1].price)", size: 16)
-                                    .foregroundColor(Color("goldColor"))
+                                    .foregroundColor(Color.green)
                                 Spacer()
 
                             }
@@ -72,9 +78,12 @@ struct CoinShopView: View {
                             VStack {
                                 Spacer()
                                 ViewWrapper.getText(self.appstoreListener.products![2].localizedTitle, size: 16).foregroundColor(.white)
-                                Spacer()
+//                                Spacer()
+                                
+                                ViewWrapper.getText(self.appstoreListener.products![2].localizedDescription, size: 16).foregroundColor(Color("goldColor"))
+//                                Spacer()
                                 ViewWrapper.getText("$\(self.appstoreListener.products![2].price)", size: 16)
-                                    .foregroundColor(Color("goldColor"))
+                                    .foregroundColor(Color.green)
                                 Spacer()
 
                             }
@@ -91,9 +100,12 @@ struct CoinShopView: View {
                             VStack {
                                 Spacer()
                                 ViewWrapper.getText(self.appstoreListener.products![3].localizedTitle, size: 16).foregroundColor(.white)
-                                Spacer()
+//                                Spacer()
+                                
+                                ViewWrapper.getText(self.appstoreListener.products![3].localizedDescription, size: 16).foregroundColor(Color("goldColor"))
+//                                Spacer()
                                 ViewWrapper.getText("$\(self.appstoreListener.products![3].price)", size: 16)
-                                    .foregroundColor(Color("goldColor"))
+                                    .foregroundColor(Color.green)
                                 Spacer()
                             }
                         }.offset(x: -10, y: 0)
