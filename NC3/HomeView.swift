@@ -14,6 +14,7 @@ struct HomeView: View {
     @State var isCoinShop: Bool = true
     @State var aBadernaEstaLiberada = false
     
+    @ObservedObject var coinListener = CoinListener.instance
     
     var body: some View {
         
@@ -114,7 +115,7 @@ struct HomeView: View {
                 
                 .frame(width: globalSize.width * 0.05, height: globalSize.height * 0.08)
             
-            ViewWrapper.getText(String(format:"%04d", StorageFacade.instance.getCoins()))
+            ViewWrapper.getText(String(format:"%04d", self.coinListener.coinCount))
                 .foregroundColor(Color("goldColor"))
             
         }

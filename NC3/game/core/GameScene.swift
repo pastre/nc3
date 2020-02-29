@@ -28,6 +28,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
     
     var stateMachine: GKStateMachine = GKStateMachine(states: [IdleState(), PlayingState(), PausedState(), GameOverState()])
     
+    
+    var realPaused: Bool = false {
+        didSet {
+            self.isPaused = realPaused
+        }
+    }
+    override var isPaused: Bool {
+        didSet {
+            if (self.isPaused == false && self.realPaused == true) {
+                self.isPaused = true
+            }
+        }
+    }
+    
     override func didMove(to view: SKView) {
         
         
@@ -73,7 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
     }
     
     func configureIdle() {
-        self.scene?.isPaused = true
+        self.realPaused = true
         self.scoreLabel.isHidden = true
         self.coinsLabel.isHidden = true
     }
@@ -82,7 +96,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
     func configureStartGame() {
         
         self.stateMachine.enter(PlayingState.self)
-        self.scene?.isPaused = false
+        self.realPaused = false
         self.scoreLabel.isHidden = false
         self.coinsLabel.isHidden = false
         self.gameOverLabel.isHidden = true
@@ -91,7 +105,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
     
     
     override func update(_ currentTime: TimeInterval) {
-           
+        
         if lastUpdate == 0 {
             lastUpdate = currentTime
             return
@@ -99,7 +113,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
         
         let deltaTime = currentTime - self.lastUpdate
         self.lastUpdate = currentTime
-            
+        
         if deltaTime > 0.1 { return }
         
         self.backgroundManager.update(deltaTime)
@@ -108,9 +122,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
         SpeedManager.instance.update(deltaTime)
         
         self.scoreLabel.text = "Score: \(String(format: "%04d", Player.getWalkingDistance()))m"
-            
+        
     }
-
+    
     // MARK: - Collision methods
     func didBegin(_ contact: SKPhysicsContact) {
         
@@ -125,8 +139,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
         
         self.gameOverLabel.color = .link
     }
-
-   
+    
+    
     func playerCollision(playerNode: SKNode, other: SKNode) {
         if other.name!.contains("enemy") && !self.isGameOver {
             GameEventBinder.instance.publish(event: .gameOver)

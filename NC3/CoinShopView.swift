@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct CoinShopView: View {
     
@@ -22,10 +23,14 @@ struct CoinShopView: View {
         }
     }
     
+
+    
     func getLoadedUI() -> some View {
         Group {
             HStack(spacing: 20) {
-                Button(action: {}) {
+                Button(action: {
+                    StoreManager.instance.buy(product: self.appstoreListener.products![0])
+                }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255)).padding(.leading)
@@ -37,7 +42,7 @@ struct CoinShopView: View {
                                 
                                 ViewWrapper.getText(self.appstoreListener.products![0].localizedDescription, size: 16).foregroundColor(Color("goldColor"))
 //                                Spacer()
-                                ViewWrapper.getText("$\(self.appstoreListener.products![0].price)", size: 16)
+                                ViewWrapper.getText(self.appstoreListener.products![0].regularPrice!, size: 16)
                                     .foregroundColor(Color.green)
                                 Spacer()
                             }
@@ -45,7 +50,10 @@ struct CoinShopView: View {
                     }
                 }.foregroundColor(.white)
                 
-                Button(action: {}) {
+                Button(action: {
+                    StoreManager.instance.buy(product: self.appstoreListener.products![1])
+                    
+                }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255))
@@ -57,7 +65,7 @@ struct CoinShopView: View {
                                 
                                 ViewWrapper.getText(self.appstoreListener.products![1].localizedDescription, size: 16).foregroundColor(Color("goldColor"))
 //                                Spacer()
-                                ViewWrapper.getText("$\(self.appstoreListener.products![1].price)", size: 16)
+                                ViewWrapper.getText(self.appstoreListener.products![1].regularPrice!, size: 16)
                                     .foregroundColor(Color.green)
                                 Spacer()
 
@@ -69,7 +77,10 @@ struct CoinShopView: View {
                 
             }
             HStack(spacing: 20) {
-                Button(action: {}) {
+                Button(action: {
+                    StoreManager.instance.buy(product: self.appstoreListener.products![2])
+                    
+                }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255)).padding(.leading)
@@ -82,7 +93,7 @@ struct CoinShopView: View {
                                 
                                 ViewWrapper.getText(self.appstoreListener.products![2].localizedDescription, size: 16).foregroundColor(Color("goldColor"))
 //                                Spacer()
-                                ViewWrapper.getText("$\(self.appstoreListener.products![2].price)", size: 16)
+                                ViewWrapper.getText(self.appstoreListener.products![2].regularPrice!, size: 16)
                                     .foregroundColor(Color.green)
                                 Spacer()
 
@@ -91,7 +102,10 @@ struct CoinShopView: View {
                     }
                 }.foregroundColor(.white)
                 
-                Button(action: {}) {
+                Button(action: {
+                    StoreManager.instance.buy(product: self.appstoreListener.products![3])
+                    
+                }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255))
@@ -104,7 +118,7 @@ struct CoinShopView: View {
                                 
                                 ViewWrapper.getText(self.appstoreListener.products![3].localizedDescription, size: 16).foregroundColor(Color("goldColor"))
 //                                Spacer()
-                                ViewWrapper.getText("$\(self.appstoreListener.products![3].price)", size: 16)
+                                ViewWrapper.getText(self.appstoreListener.products![3].regularPrice!, size: 16)
                                     .foregroundColor(Color.green)
                                 Spacer()
                             }
