@@ -15,6 +15,7 @@ struct GameOverView: View, GameEventListener {
     
     func onGameOver() {
         self.currentScore = Player.getWalkingDistance()
+        CoinListener.instance.udpateCoinUI()
     }
     
     

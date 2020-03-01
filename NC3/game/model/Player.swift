@@ -98,8 +98,6 @@ class Player: GameObject, MissionUpdater, GameEventListener {
     
     func onCoinCollected() {
         Player.currentCoin += 1
-        
-        
     }
     
     func onJetpackUpdate(to isOn: Bool) {
@@ -107,7 +105,7 @@ class Player: GameObject, MissionUpdater, GameEventListener {
     }
     
     func reset() {
-        Player.self.walkedDistance = 0
+        Player.walkedDistance = 0
         Player.currentCoin = 0
     }
     

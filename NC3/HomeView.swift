@@ -9,7 +9,18 @@
 import SwiftUI
 import Combine
 
-struct HomeView: View {
+struct HomeView: View, GameEventListener {
+    func onGameStart() {
+        
+    }
+    
+    func onGameOver() {
+        CoinListener.instance.udpateCoinUI()
+    }
+    
+    init() {
+        GameEventBinder.instance.subscribe(self)
+    }
     
     @State var isCoinShop: Bool = true
     @State var aBadernaEstaLiberada = false
@@ -103,6 +114,9 @@ struct HomeView: View {
             
         
             
+        }.onAppear {
+
+            CoinListener.instance.udpateCoinUI()
         }
     }
     
