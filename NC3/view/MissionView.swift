@@ -7,6 +7,20 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
+
+class AdDelegateWrapper: NSObject, GADRewardedAdDelegate {
+    func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
+        self.missionView.mission.isAdComplete = true
+        self.missionView.isDirty.toggle()
+    }
+    
+    var missionView: MissionView!
+    
+    init(missionView: MissionView) {
+        self.missionView = missionView
+    }
+}
 
 struct MissionView: View {
     
@@ -14,10 +28,17 @@ struct MissionView: View {
     var r: CGRect!
     var coinsPosition: CGPoint!
     
+    @State var rewardedAd: GADRewardedAd?
+
     @State var isCompleted: Bool = false
     @State var hasAnimated: Bool = false
     @State var isReadyToSwap: Bool = false
     @State var hasSwapped: Bool = false
+    
+    @State var adDelegateWrapper: AdDelegateWrapper?
+    @State var isAdReady = false
+    @State var isAdLoading = false
+    @State var isDirty = false
     
     var body: some View {
         ZStack {
@@ -41,7 +62,7 @@ struct MissionView: View {
                 HStack(alignment: .center) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
-                            .fill(Color("blueFill"))
+                            .fill(self.isAdReady ? Color("blueFill") : Color.gray)
                         HStack {
                             Spacer()
                             ViewWrapper.getText("Skip", size: 16).foregroundColor(.white)
@@ -63,7 +84,7 @@ struct MissionView: View {
                         
                     }
                 }.gesture(TapGesture().onEnded {
-                    print("Mostra o ad ai brow")
+                    self.showAd()
                 })
             }
             .offset(x: self.hasSwapped ? 0 : -300, y: 0)
@@ -115,12 +136,14 @@ struct MissionView: View {
                         )
                     }
                 }.gesture(TapGesture().onEnded {
-                    print("Mostra o ad ai brow")
+                    self.showAd()
                 })
             }
         }
         .frame(maxWidth: self.r.size.width * 0.95)
         .onAppear {
+            self.loadAd()
+            
             if self.mission.isComplete() {
                 withAnimation(.easeInOut(duration: 1.0)) {
                     self.isCompleted.toggle()
@@ -140,6 +163,29 @@ struct MissionView: View {
                 }
             }
         }
+    }
+    
+    func showAd() {
+        guard let ad = self.rewardedAd, ad.isReady else { return }
+        guard let vc = UIApplication.shared.windows.first?.rootViewController else { return }
+        self.adDelegateWrapper = AdDelegateWrapper(missionView: self)
+        
+        ad.present(fromRootViewController: vc, delegate: self.adDelegateWrapper!)
+    }
+    
+    func loadAd() {
+        
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3760704996981292~5908208043")
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313") // sets debug
+        self.isAdLoading = true
+        self.rewardedAd?.load(GADRequest()) { error in
+            if let error = error {
+                self.isAdLoading = false
+            } else {
+                self.isAdReady = true
+            }
+        }
+        
     }
     
 }

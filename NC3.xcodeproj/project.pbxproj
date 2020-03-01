@@ -34,7 +34,6 @@
 		D788C38E240AD9FE0057D923 /* SkinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D788C38D240AD9FE0057D923 /* SkinManager.swift */; };
 		D798E6CC240C2967004FF30E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D798E6CB240C2967004FF30E /* GoogleService-Info.plist */; };
 		D79A55BA24080E0B0003859E /* MissionCompleteTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A55B924080E0B0003859E /* MissionCompleteTextModifier.swift */; };
-		D7A3BE91240C2B7300503714 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A3BE90240C2B7300503714 /* AdView.swift */; };
 		D7A4ADA223FF2EE700E5D18A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA123FF2EE700E5D18A /* Task.swift */; };
 		D7A4ADA423FF2F1F00E5D18A /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA323FF2F1F00E5D18A /* Mission.swift */; };
 		D7A4ADA623FF2F9800E5D18A /* MissionPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA523FF2F9800E5D18A /* MissionPool.swift */; };
@@ -110,7 +109,6 @@
 		D788C38D240AD9FE0057D923 /* SkinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinManager.swift; sourceTree = "<group>"; };
 		D798E6CB240C2967004FF30E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D79A55B924080E0B0003859E /* MissionCompleteTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCompleteTextModifier.swift; sourceTree = "<group>"; };
-		D7A3BE90240C2B7300503714 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		D7A4ADA123FF2EE700E5D18A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D7A4ADA323FF2F1F00E5D18A /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		D7A4ADA523FF2F9800E5D18A /* MissionPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPool.swift; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 		D788C38B240AD7410057D923 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				D7A3BE90240C2B7300503714 /* AdView.swift */,
 				D7A4ADAB2400124C00E5D18A /* ButtonView.swift */,
 				D74E3D782409EA820034D7A8 /* CoinShopView.swift */,
 				D77539ED23FDCE4300DE55A3 /* HomeButtonView.swift */,
@@ -580,7 +577,6 @@
 				D7A93EDF23FB388800C5845E /* ContentView.swift in Sources */,
 				D7A4ADA824000E5E00E5D18A /* MissionEventBinder.swift in Sources */,
 				D74E3D6C2409BB390034D7A8 /* GameCenterView.swift in Sources */,
-				D7A3BE91240C2B7300503714 /* AdView.swift in Sources */,
 				D7A4ADAC2400124C00E5D18A /* ButtonView.swift in Sources */,
 				D7291DC323FC9A3300E04B6D /* ObservableGameListener.swift in Sources */,
 				D734727923FB583A00012D8E /* AnimationProvider.swift in Sources */,

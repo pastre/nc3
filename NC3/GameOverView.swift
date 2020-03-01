@@ -44,7 +44,7 @@ struct GameOverView: View, GameEventListener {
                     .foregroundColor(Color("goldColor"))
                 
                 
-                ViewWrapper.getText("\(String(format: "%04d", self.missionListener.coinReward))", size: 83, weight: .heavy).foregroundColor(Color("goldColor"))
+                 ViewWrapper.getText("\(String(format: "%04d", self.missionListener.coinReward))", size: 83, weight: .heavy).foregroundColor(Color("goldColor"))
                     .overlay(
                         GeometryReader { rr in
                             Color.clear.onAppear {
