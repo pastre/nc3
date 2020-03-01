@@ -19,7 +19,7 @@ class StoreManager: NSObject,ObservableObject, SKProductsRequestDelegate, SKPaym
                 for product in self.products! {
                     if product.productIdentifier == t.payment.productIdentifier {
                         let coinAmount = product.localizedDescription.replacingOccurrences(of: " coins", with: "").replacingOccurrences(of: ".", with: "")
-                        StorageFacade.instance.onCoinsReceived(Int(coinAmount)!)
+                        StorageFacade.instance.onCoinsReceived(Int(coinAmount)!, true)
                         CoinListener.instance.udpateCoinUI()
                     }
                 }

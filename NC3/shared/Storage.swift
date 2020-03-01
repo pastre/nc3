@@ -42,12 +42,19 @@ class StorageFacade: ObservableObject {
         
     }
     
-    func onCoinsReceived(_ amount: Int) {
+    func onCoinsReceived(_ amount: Int, _ isBought: Bool = false) {
         
         self.coins += amount
-        self.accumulatedCoins += amount
+        
+        if !isBought {
+
+            self.accumulatedCoins += amount
+            GameKitFacade.onNewAccumulatedCoins(self.accumulatedCoins)
+        }
+        
         self.updatePersistance()
     }
+    
     
     func getCoins() -> Int {
         return self.coins

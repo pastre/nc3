@@ -98,6 +98,8 @@ class Player: GameObject, MissionUpdater, GameEventListener {
     
     func onCoinCollected() {
         Player.currentCoin += 1
+        
+        
     }
     
     func onJetpackUpdate(to isOn: Bool) {
@@ -142,10 +144,9 @@ class Player: GameObject, MissionUpdater, GameEventListener {
         return "player"
     }
     
-    static func receiveCoins(_ amount: Int) {
+    static func receiveMissionCoins(_ amount: Int) {
         Player.currentCoin += amount
         StorageFacade.instance.onCoinsReceived(amount)
         MissionFacade.instance.refreshPlayer()
-        
     }
 }
