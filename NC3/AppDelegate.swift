@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Loads ads service
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         // Loads firebase
+         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["16e43876ab970d8a769187172612033f" ]
         FirebaseApp.configure()
         
         // Loads missions

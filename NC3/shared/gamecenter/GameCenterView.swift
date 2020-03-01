@@ -50,6 +50,8 @@ struct GameCenterView: View {
                 }
             }
         }
+        .background(with: .clear)
+    
     }
     
     func getGKVC() -> GameCenterWrapperViewController{

@@ -31,9 +31,10 @@
 		D77539EE23FDCE4300DE55A3 /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77539ED23FDCE4300DE55A3 /* HomeButtonView.swift */; };
 		D77539F223FDE7D900DE55A3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77539F123FDE7D900DE55A3 /* Storage.swift */; };
 		D77C58F623FF1B4600CFC828 /* ViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */; };
+		D7827C80240C681C002CF292 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7827C7F240C681C002CF292 /* GoogleService-Info.plist */; };
 		D788C38E240AD9FE0057D923 /* SkinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D788C38D240AD9FE0057D923 /* SkinManager.swift */; };
-		D798E6CC240C2967004FF30E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D798E6CB240C2967004FF30E /* GoogleService-Info.plist */; };
 		D79A55BA24080E0B0003859E /* MissionCompleteTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A55B924080E0B0003859E /* MissionCompleteTextModifier.swift */; };
+		D7A3BE93240C32C100503714 /* AdDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A3BE92240C32C100503714 /* AdDelegateWrapper.swift */; };
 		D7A4ADA223FF2EE700E5D18A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA123FF2EE700E5D18A /* Task.swift */; };
 		D7A4ADA423FF2F1F00E5D18A /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA323FF2F1F00E5D18A /* Mission.swift */; };
 		D7A4ADA623FF2F9800E5D18A /* MissionPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA523FF2F9800E5D18A /* MissionPool.swift */; };
@@ -106,9 +107,10 @@
 		D77539ED23FDCE4300DE55A3 /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
 		D77539F123FDE7D900DE55A3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWrapper.swift; sourceTree = "<group>"; };
+		D7827C7F240C681C002CF292 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D788C38D240AD9FE0057D923 /* SkinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinManager.swift; sourceTree = "<group>"; };
-		D798E6CB240C2967004FF30E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D79A55B924080E0B0003859E /* MissionCompleteTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCompleteTextModifier.swift; sourceTree = "<group>"; };
+		D7A3BE92240C32C100503714 /* AdDelegateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDelegateWrapper.swift; sourceTree = "<group>"; };
 		D7A4ADA123FF2EE700E5D18A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D7A4ADA323FF2F1F00E5D18A /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		D7A4ADA523FF2F9800E5D18A /* MissionPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPool.swift; sourceTree = "<group>"; };
@@ -116,7 +118,7 @@
 		D7A4ADA92400112900E5D18A /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		D7A4ADAB2400124C00E5D18A /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		D7A4ADAD24005D7B00E5D18A /* MissionFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionFacade.swift; sourceTree = "<group>"; };
-		D7A93ED723FB388800C5845E /* NC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7A93ED723FB388800C5845E /* Jumpy Alien.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jumpy Alien.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A93EDA23FB388800C5845E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A93EDC23FB388800C5845E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D7A93EDE23FB388800C5845E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				D74E3D6A2409BA920034D7A8 /* gamecenter */,
+				D7A3BE92240C32C100503714 /* AdDelegateWrapper.swift */,
 				D7118C13240AD44A0062B7A5 /* CoinListener.swift */,
 				D734727423FB3C1200012D8E /* GameViewAdapter.swift */,
 				D764992223FC699800AF28F9 /* GameEventBinder.swift */,
@@ -270,7 +273,7 @@
 		D7A93ED823FB388800C5845E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D7A93ED723FB388800C5845E /* NC3.app */,
+				D7A93ED723FB388800C5845E /* Jumpy Alien.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,7 +291,7 @@
 				D7A93EDA23FB388800C5845E /* AppDelegate.swift */,
 				D7A93EDC23FB388800C5845E /* SceneDelegate.swift */,
 				D7A93EE523FB388A00C5845E /* LaunchScreen.storyboard */,
-				D798E6CB240C2967004FF30E /* GoogleService-Info.plist */,
+				D7827C7F240C681C002CF292 /* GoogleService-Info.plist */,
 				D7A93EE823FB388A00C5845E /* Info.plist */,
 				D7A93EE223FB388A00C5845E /* Preview Content */,
 				D764991823FC5AFA00AF28F9 /* Assets.xcassets */,
@@ -452,7 +455,7 @@
 			);
 			name = NC3;
 			productName = NC3;
-			productReference = D7A93ED723FB388800C5845E /* NC3.app */;
+			productReference = D7A93ED723FB388800C5845E /* Jumpy Alien.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -499,9 +502,9 @@
 				D7A93F2023FB3BBF00C5845E /* BatcarFire.sks in Resources */,
 				D764991A23FC5AFA00AF28F9 /* Assets.xcassets in Resources */,
 				D7A93F2B23FB3BBF00C5845E /* GameScene.sks in Resources */,
+				D7827C80240C681C002CF292 /* GoogleService-Info.plist in Resources */,
 				D7A93F1D23FB3BBF00C5845E /* Assets.xcassets in Resources */,
 				D764991E23FC5D3800AF28F9 /* CandySet.sks in Resources */,
-				D798E6CC240C2967004FF30E /* GoogleService-Info.plist in Resources */,
 				D734727723FB3EE800012D8E /* Game.storyboard in Resources */,
 				D7A93F1F23FB3BBF00C5845E /* Spark.sks in Resources */,
 			);
@@ -607,6 +610,7 @@
 				D74E3D69240944E50034D7A8 /* MyButtonStyle.swift in Sources */,
 				D7A93F2323FB3BBF00C5845E /* ContactMask.swift in Sources */,
 				D7A93F3523FB3BBF00C5845E /* MissleStates.swift in Sources */,
+				D7A3BE93240C32C100503714 /* AdDelegateWrapper.swift in Sources */,
 				D764992323FC699800AF28F9 /* GameEventBinder.swift in Sources */,
 				D74E3D772409E8F70034D7A8 /* SkinShopView.swift in Sources */,
 				D7291DC723FD751C00E04B6D /* GameOverView.swift in Sources */,
@@ -750,6 +754,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"NC3/Preview Content\"";
 				DEVELOPMENT_TEAM = QM43B7QRF9;
 				ENABLE_PREVIEWS = YES;
@@ -759,7 +764,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.pastre.jumpyaliens;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Jumpy Alien";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -771,6 +776,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"NC3/Preview Content\"";
 				DEVELOPMENT_TEAM = QM43B7QRF9;
 				ENABLE_PREVIEWS = YES;
@@ -780,7 +786,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.pastre.jumpyaliens;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Jumpy Alien";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

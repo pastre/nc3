@@ -32,5 +32,7 @@
 	<string>1:364703373564:ios:1ee531fcb91dd56e279f79</string>
 	<key>DATABASE_URL</key>
 	<string>https://jumpy-aliens.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-3760704996981292~5908208043</string>
 </dict>
 </plist>
