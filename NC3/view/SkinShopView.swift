@@ -103,6 +103,8 @@ struct SkinShopView: View {
     struct AlienDescription: View {
         var alienName: String
         
+        @ObservedObject var storage = StorageFacade.instance
+        
         var body: some View {
 
             VStack {
@@ -110,8 +112,8 @@ struct SkinShopView: View {
                 ViewWrapper.getText(self.alienName, size: 16).foregroundColor(.white)
                 Spacer()
                 
-                if StorageFacade.instance.isUnlocked(self.alienName) {
-                    if StorageFacade.instance.isSkinSelected(self.alienName) {
+                if self.storage.isUnlocked(self.alienName) {
+                    if self.storage.isSkinSelected(self.alienName) {
                         ViewWrapper.getText("Unequip", size: 16)
                             .foregroundColor(Color.red)
                     }  else {

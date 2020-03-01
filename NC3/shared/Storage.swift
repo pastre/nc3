@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StorageFacade {
+class StorageFacade: ObservableObject {
     enum StorageKeys: String {
         case coinAmount = "coinAmount"
         case highScore = "highScore"
@@ -76,8 +76,6 @@ class StorageFacade {
     }
     
     
-
-    
     func isSkinSelected(_ named: String) -> Bool {
         return named == self.skinManager.currentSkin
     }
@@ -92,16 +90,21 @@ class StorageFacade {
             self.coins -= 10000
         }
         self.updatePersistance()
+        self.objectWillChange.send()
     }
     
     func select(skin named: String) {
         self.skinManager.currentSkin  = named
         self.updatePersistance()
+        self.objectWillChange.send()
     }
     
     func deselect(skin named: String) {
         self.skinManager.currentSkin  = nil
         self.updatePersistance()
+        
+        self.objectWillChange.send()
     }
+    
 }
 
