@@ -76,7 +76,7 @@ struct SkinShopView: View {
                 
                 Button(action: {
                     
-                    self.onSkinSelected("Paxy")
+                    self.onSkinSelected("Dotty")
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
@@ -89,7 +89,7 @@ struct SkinShopView: View {
                             //                                                .padding()
                             
                             
-                            AlienDescription(alienName: "Paxy")
+                            AlienDescription(alienName: "Dotty")
                             
                         }.offset(x: -10, y: 0)
                     }.offset(x: -10, y: 0)

@@ -11,12 +11,11 @@ import SpriteKit
 class AnimationProvider {
     
     static func getPlayerWalkingAction() -> SKAction{
-        return self.getAction(amount: 2, baseName: "alienBlue_walk")
+        return self.getAction(amount: 2, baseName: StorageFacade.instance.getCurrentSkinName() + "_walk")
     }
     
     static func getPlayerFlyingAction() -> SKAction {
-        
-        return self.getAction(amount: 2, baseName: "alienBlue_swim")
+        return self.getAction(amount: 2, baseName: StorageFacade.instance.getCurrentSkinName() + "_swim")
     }
     
     static func getBatFlyingAction() -> SKAction {
@@ -30,6 +29,10 @@ class AnimationProvider {
     static func getBeeFlyingAction() -> SKAction {
         
         return self.getAction(amount: 2, baseName: "bee_fly")
+    }
+    
+    static func getAlienAction() {
+        
     }
     
     private static func getAction(amount: Int, baseName: String, timePerFrame: TimeInterval = 0.1) -> SKAction {

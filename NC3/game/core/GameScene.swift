@@ -101,6 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameEventListener {
         self.coinsLabel.isHidden = false
         self.gameOverLabel.isHidden = true
         self.isGameOver = false
+        self.player.onStartedWalking()
     }
     
     

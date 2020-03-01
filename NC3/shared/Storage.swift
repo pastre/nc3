@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class StorageFacade: ObservableObject {
     enum StorageKeys: String {
         case coinAmount = "coinAmount"
@@ -105,6 +106,28 @@ class StorageFacade: ObservableObject {
         self.updatePersistance()
         
         self.objectWillChange.send()
+    }
+    
+    func getCurrentSkinName() -> String {
+        if let currentSkin = self.skinManager.currentSkin {
+            if currentSkin == "Dotty" {
+                return "alienBeige"
+            }
+            
+            if currentSkin == "Bloxy" {
+                return "alienPink"
+            }
+            
+            if currentSkin == "Jumpzy" {
+                return "alienGreen"
+            }
+            
+            if currentSkin == "Canvy" {
+                return "alienYellow"
+            }
+        }
+        
+        return "alienBlue"
     }
     
 }
