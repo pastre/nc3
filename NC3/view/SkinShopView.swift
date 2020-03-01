@@ -13,7 +13,9 @@ struct SkinShopView: View {
     var body: some View {
         Group {
             HStack(spacing: 20) {
-                Button(action: {}) {
+                Button(action: {
+                    self.onSkinSelected("Canvy")
+                }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255)).padding(.leading)
@@ -22,20 +24,17 @@ struct SkinShopView: View {
                                 .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                                 .resizable()
                                 .scaledToFit()
+
+                            AlienDescription(alienName: "Canvy")
                             
-                            VStack {
-                                Spacer()
-                                ViewWrapper.getText("Canvy", size: 16).foregroundColor(.white)
-                                Spacer()
-                                ViewWrapper.getText("10.000", size: 16)
-                                    .foregroundColor(Color("goldColor"))
-                                Spacer()
-                            }
                         }
                     }
                 }.foregroundColor(.white)
                 
-                Button(action: {}) {
+                Button(action: {
+                    
+                    self.onSkinSelected("Bloxy")
+                }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255))
@@ -45,17 +44,8 @@ struct SkinShopView: View {
                                 .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                                 .resizable()
                                 .scaledToFit()
-                            //                                                .padding()
                             
-                            
-                            VStack {
-                                Spacer()
-                                ViewWrapper.getText("Bloxy", size: 16).foregroundColor(.white)
-                                Spacer()
-                                ViewWrapper.getText("10.000", size: 16)
-                                    .foregroundColor(Color("goldColor"))
-                                Spacer()
-                            }
+                                AlienDescription(alienName: "Bloxy")
                         }.offset(x: -10, y: 0)
                     }.offset(x: -10, y: 0)
                 }.foregroundColor(.white)
@@ -63,7 +53,10 @@ struct SkinShopView: View {
                 
             }
             HStack(spacing: 20) {
-                Button(action: {}) {
+                Button(action: {
+                    
+                    self.onSkinSelected("Jumpzy")
+                }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255)).padding(.leading)
@@ -74,20 +67,17 @@ struct SkinShopView: View {
                                 .scaledToFit()
                             //                                                .padding()
                             
+
+                            AlienDescription(alienName: "Jumpzy")
                             
-                            VStack {
-                                Spacer()
-                                ViewWrapper.getText("Jumpzy", size: 16).foregroundColor(.white)
-                                Spacer()
-                                ViewWrapper.getText("10.000", size: 16)
-                                    .foregroundColor(Color("goldColor"))
-                                Spacer()
-                            }
                         }
                     }
                 }.foregroundColor(.white)
                 
-                Button(action: {}) {
+                Button(action: {
+                    
+                    self.onSkinSelected("Paxy")
+                }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(Color(red: 122/255, green: 96/255, blue: 69/255))
@@ -99,14 +89,8 @@ struct SkinShopView: View {
                             //                                                .padding()
                             
                             
-                            VStack {
-                                Spacer()
-                                ViewWrapper.getText("Paxy", size: 16).foregroundColor(.white)
-                                Spacer()
-                                ViewWrapper.getText("10.000", size: 16)
-                                    .foregroundColor(Color("goldColor"))
-                                Spacer()
-                            }
+                            AlienDescription(alienName: "Paxy")
+                            
                         }.offset(x: -10, y: 0)
                     }.offset(x: -10, y: 0)
                 }.foregroundColor(.white)
@@ -114,5 +98,45 @@ struct SkinShopView: View {
                 
             }
         }
+    }
+    
+    struct AlienDescription: View {
+        var alienName: String
+        
+        var body: some View {
+
+            VStack {
+                Spacer()
+                ViewWrapper.getText(self.alienName, size: 16).foregroundColor(.white)
+                Spacer()
+                
+                if StorageFacade.instance.isUnlocked(self.alienName) {
+                    if StorageFacade.instance.isSkinSelected(self.alienName) {
+                        ViewWrapper.getText("Unequip", size: 16)
+                            .foregroundColor(Color.red)
+                    }  else {
+                        ViewWrapper.getText("Equip", size: 16)
+                            .foregroundColor(Color.green)
+                    }
+                } else {
+
+                    ViewWrapper.getText("10.000", size: 16)
+                        .foregroundColor(Color("goldColor"))
+                }
+                Spacer()
+            }
+
+        }
+    }
+    
+    func onSkinSelected(_ named: String) {
+        if !StorageFacade.instance.isUnlocked(named) {
+            StorageFacade.instance.unlock(skin: named)
+        } else if  StorageFacade.instance.isSkinSelected(named) {
+            StorageFacade.instance.deselect(skin: named)
+        } else {
+            StorageFacade.instance.select(skin: named)
+        }
+        
     }
 }

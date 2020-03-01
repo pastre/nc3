@@ -31,7 +31,6 @@
 		D77539F223FDE7D900DE55A3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77539F123FDE7D900DE55A3 /* Storage.swift */; };
 		D77C58F623FF1B4600CFC828 /* ViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */; };
 		D788C38E240AD9FE0057D923 /* SkinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D788C38D240AD9FE0057D923 /* SkinManager.swift */; };
-		D788C390240ADFC00057D923 /* MIssionTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D788C38F240ADFC00057D923 /* MIssionTileView.swift */; };
 		D79A55BA24080E0B0003859E /* MissionCompleteTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A55B924080E0B0003859E /* MissionCompleteTextModifier.swift */; };
 		D7A4ADA223FF2EE700E5D18A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA123FF2EE700E5D18A /* Task.swift */; };
 		D7A4ADA423FF2F1F00E5D18A /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4ADA323FF2F1F00E5D18A /* Mission.swift */; };
@@ -103,7 +102,6 @@
 		D77539F123FDE7D900DE55A3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		D77C58F523FF1B4600CFC828 /* ViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWrapper.swift; sourceTree = "<group>"; };
 		D788C38D240AD9FE0057D923 /* SkinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinManager.swift; sourceTree = "<group>"; };
-		D788C38F240ADFC00057D923 /* MIssionTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIssionTileView.swift; sourceTree = "<group>"; };
 		D79A55B924080E0B0003859E /* MissionCompleteTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCompleteTextModifier.swift; sourceTree = "<group>"; };
 		D7A4ADA123FF2EE700E5D18A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D7A4ADA323FF2F1F00E5D18A /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 				D7A93EE223FB388A00C5845E /* Preview Content */,
 				D764991823FC5AFA00AF28F9 /* Assets.xcassets */,
 				D764991D23FC5D3800AF28F9 /* CandySet.sks */,
-				D788C38F240ADFC00057D923 /* MIssionTileView.swift */,
 			);
 			path = NC3;
 			sourceTree = "<group>";
@@ -530,7 +527,6 @@
 				D7A93F3223FB3BBF00C5845E /* MissleEnemyManager.swift in Sources */,
 				D7A4ADA423FF2F1F00E5D18A /* Mission.swift in Sources */,
 				D7A93F1923FB3BBF00C5845E /* Background.swift in Sources */,
-				D788C390240ADFC00057D923 /* MIssionTileView.swift in Sources */,
 				D7A93F3023FB3BBF00C5845E /* PenguinEnemy.swift in Sources */,
 				D7A4ADAE24005D7B00E5D18A /* MissionFacade.swift in Sources */,
 				D7A4ADAA2400112900E5D18A /* MissionView.swift in Sources */,

@@ -12,19 +12,23 @@ class StorageFacade {
     enum StorageKeys: String {
         case coinAmount = "coinAmount"
         case highScore = "highScore"
-        case skinManager = "playerBank" 
+        case skinManager = "playerBank"
+        case accumulatedCoins = "accumulatedCoins"
     }
     
-    var playerBank: PlayerBank!
+    var accumulatedCoins: Int!
+    var coins: Int!
     var skinManager: SkinManager!
-    var highScore:  Int!
+    var highScore: Int!
     
     static let instance = StorageFacade()
     let defaults = UserDefaults.standard
     
     private init() {
         let coinAmount = defaults.integer(forKey: StorageKeys.coinAmount.rawValue)
+        let accCoinAmount = defaults.integer(forKey: StorageKeys.accumulatedCoins.rawValue)
         let highScore = defaults.integer(forKey: StorageKeys.highScore.rawValue)
+        
         if let data = defaults.data(forKey: StorageKeys.skinManager.rawValue), let manager = try? JSONDecoder().decode(SkinManager.self, from: data) {
             self.skinManager = manager
         } else {
@@ -32,18 +36,20 @@ class StorageFacade {
         }
 
         self.highScore = highScore
-        self.playerBank = PlayerBank(coins: coinAmount)
+        self.coins = coinAmount
+        self.accumulatedCoins = accCoinAmount
         
     }
     
     func onCoinsReceived(_ amount: Int) {
         
-        self.playerBank.addCoins(amount)
+        self.coins += amount
+        self.accumulatedCoins += amount
         self.updatePersistance()
     }
     
     func getCoins() -> Int {
-        return self.playerBank.coins
+        return self.coins
     }
     
     func updateHighScore(to value: Int) {
@@ -60,23 +66,42 @@ class StorageFacade {
     }
     
     func updatePersistance(){
-        self.defaults.set(self.playerBank.coins, forKey: StorageKeys.coinAmount.rawValue)
+        self.defaults.set(self.accumulatedCoins, forKey: StorageKeys.accumulatedCoins.rawValue)
+        self.defaults.set(self.highScore, forKey: StorageKeys.highScore.rawValue)
+        self.defaults.set(self.coins, forKey: StorageKeys.coinAmount.rawValue)
         
         if let data = try? JSONEncoder().encode(self.skinManager) {
             self.defaults.set(data, forKey: StorageKeys.skinManager.rawValue)
         }
     }
-}
-
-
-class PlayerBank {
-    var coins: Int!
     
-    internal init(coins: Int = 0) {
-        self.coins = coins
+    
+
+    
+    func isSkinSelected(_ named: String) -> Bool {
+        return named == self.skinManager.currentSkin
     }
     
-    func addCoins(_ amount: Int) {
-        self.coins += amount
+    func isUnlocked(_ named: String) -> Bool {
+        return self.skinManager.unlockedSkins.contains(named)
+    }
+    
+    func unlock(skin named: String) {
+        if self.getCoins() > 10000 {
+            self.skinManager.unlockedSkins.append(named)
+            self.coins -= 10000
+        }
+        self.updatePersistance()
+    }
+    
+    func select(skin named: String) {
+        self.skinManager.currentSkin  = named
+        self.updatePersistance()
+    }
+    
+    func deselect(skin named: String) {
+        self.skinManager.currentSkin  = nil
+        self.updatePersistance()
     }
 }
+
