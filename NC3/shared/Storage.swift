@@ -91,6 +91,7 @@ class StorageFacade: ObservableObject {
         }
         self.updatePersistance()
         self.objectWillChange.send()
+        CoinListener.instance.udpateCoinUI()
     }
     
     func select(skin named: String) {
