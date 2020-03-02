@@ -209,11 +209,11 @@ struct HomeView: View, GameEventListener {
     }
     
 }
-
-struct HomeView_Preview: PreviewProvider {
-    static var previews: some View {
-        HomeView().previewLayout(.fixed(width: 1792 / 2
-            , height: 828 / 2))
-    }
-}
+//
+//struct HomeView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        HomeView().previewLayout(.fixed(width: 1792 / 2
+//            , height: 828 / 2))
+//    }
+//}
 

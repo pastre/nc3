@@ -10,7 +10,23 @@ import Foundation
 
 import GoogleMobileAds
 
-class AdDelegateWrapper: NSObject, GADRewardedAdDelegate {
+class AdDelegateWrapper: NSObject, GADRewardedAdDelegate, GADRewardBasedVideoAdDelegate {
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        
+        self.missionView.mission.isAdComplete = true
+        self.missionView.isDirty.toggle()
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("recvd?")
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didFailToLoadWithError error: Error) {
+        print("failed")
+    }
+    
+    
     func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
         self.missionView.mission.isAdComplete = true
         self.missionView.isDirty.toggle()
@@ -22,3 +38,4 @@ class AdDelegateWrapper: NSObject, GADRewardedAdDelegate {
         self.missionView = missionView
     }
 }
+

@@ -15,11 +15,15 @@ import GoogleMobileAds
 class AppDelegate: UIResponder, UIApplicationDelegate {    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Loads ads service
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
         // Loads firebase
-         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["16e43876ab970d8a769187172612033f" ]
         FirebaseApp.configure()
+        
+        // Loads ads service
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["16e43876ab970d8a769187172612033f" ]
+        GADMobileAds.sharedInstance().start { (status) in
+            print("status is", status)
+        }
         
         // Loads missions
         let _ = MissionFacade.instance

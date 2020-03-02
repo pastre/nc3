@@ -29,9 +29,9 @@ struct HomeButtonView: View {
         }
     }
 }
-
-struct HomeButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeButtonView(buttonName: "Debug", iconName: "debug").previewLayout(.fixed(width: 200, height: 100))
-    }
-}
+//
+//struct HomeButtonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeButtonView(buttonName: "Debug", iconName: "debug").previewLayout(.fixed(width: 200, height: 100))
+//    }
+//}

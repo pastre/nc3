@@ -129,9 +129,9 @@ struct GameOverView: View, GameEventListener {
         GameEventBinder.instance.publish(event: .gameStart)
     }
 }
-
-struct GameOverView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameOverView().previewLayout(.fixed(width: 896, height: 414))
-    }
-}
+//
+//struct GameOverView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GameOverView().previewLayout(.fixed(width: 896, height: 414))
+//    }
+//}
