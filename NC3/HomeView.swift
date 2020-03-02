@@ -42,6 +42,26 @@ struct HomeView: View, GameEventListener {
                             Spacer()
                             
                             Button(action: {
+                                
+                            }) {
+                                GeometryReader {zReader in
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .foregroundColor(Color.clear)
+//                                        .foregroundColor(Color("blueFill"))
+                                            .offset(x:0, y: -20)
+                                            
+                                        Image("gear")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: zReader.size.width * 0.75)
+                                            .foregroundColor(.clear)
+                                        
+                                    }.frame(width: r.size.width * 0.1)
+                                }
+                            }
+                            
+                            Button(action: {
                                 self.aBadernaEstaLiberada.toggle()
                             }) {
                                 GeometryReader {zReader in
@@ -51,32 +71,14 @@ struct HomeView: View, GameEventListener {
                                             .offset(x:0, y: -20)
                                         Image("crown")
                                             .resizable()
-                                        .scaledToFit()
+                                            .scaledToFit()
                                             .frame(width: zReader.size.width * 0.8)
                                             .foregroundColor(.white)
                                         
                                     }.frame(width: r.size.width * 0.1)
                                 }
                             }
-                            
-                            Button(action: {
-                                
-                            }) {
-                                GeometryReader {zReader in
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .foregroundColor(Color("blueFill"))
-                                            .offset(x:0, y: -20)
-                                        Image("gear")
-                                            .resizable()
-                                        .scaledToFit()
-                                            .frame(width: zReader.size.width * 0.75)
-                                            .foregroundColor(.white)
-                                        
-                                    }.frame(width: r.size.width * 0.1)
-                                }
-                            }
-                            
+
 
                             
                         }
@@ -207,11 +209,11 @@ struct HomeView: View, GameEventListener {
     }
     
 }
-
-struct HomeView_Preview: PreviewProvider {
-    static var previews: some View {
-        HomeView().previewLayout(.fixed(width: 1792 / 2
-            , height: 828 / 2))
-    }
-}
+//
+//struct HomeView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        HomeView().previewLayout(.fixed(width: 1792 / 2
+//            , height: 828 / 2))
+//    }
+//}
 

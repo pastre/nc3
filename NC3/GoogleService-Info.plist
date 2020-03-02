@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>364703373564-4mit4iuenj5i957c1kr4t446606p6kid.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.364703373564-4mit4iuenj5i957c1kr4t446606p6kid</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAkSX75m9eaRk0l2eo2IFpe_FJ_8lrdFoc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>364703373564</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>io.github.pastre.jumpyaliens</string>
+	<key>PROJECT_ID</key>
+	<string>jumpy-aliens</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jumpy-aliens.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:364703373564:ios:1ee531fcb91dd56e279f79</string>
+	<key>DATABASE_URL</key>
+	<string>https://jumpy-aliens.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-3760704996981292~5908208043</string>
+</dict>
+</plist>

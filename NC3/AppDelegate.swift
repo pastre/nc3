@@ -8,15 +8,26 @@
 
 import UIKit
 import StoreKit
+import Firebase
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        // Loads missions before game starts
+        
+        // Loads firebase
+        FirebaseApp.configure()
+        
+        // Loads ads service
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["16e43876ab970d8a769187172612033f" ]
+        GADMobileAds.sharedInstance().start { (status) in
+            print("status is", status)
+        }
+        
+        // Loads missions
         let _ = MissionFacade.instance
-        // Loads IAP from appstore before game starts
+        // Loads in app purchases
         StoreManager.instance.fire()
         
         return true
