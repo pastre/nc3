@@ -164,7 +164,7 @@ struct MissionView: View {
     func loadAd() {
         
         rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3760704996981292/4511844821")
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313") // sets debug
+//        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313") // sets debug
         self.isAdLoading = true
         self.rewardedAd?.load(GADRequest()) { error in
             if let error = error {
