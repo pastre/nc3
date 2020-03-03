@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // Loads ads service
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["16e43876ab970d8a769187172612033f" ]
+//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["16e43876ab970d8a769187172612033f" ]
         GADMobileAds.sharedInstance().start { (status) in
             print("status is", status)
         }
