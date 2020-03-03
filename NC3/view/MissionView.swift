@@ -16,7 +16,6 @@ struct MissionView: View {
     var r: CGRect!
     var coinsPosition: CGPoint!
     
-    @State var rewardedAd: GADRewardedAd?
 
     @State var isCompleted: Bool = false
     @State var hasAnimated: Bool = false
@@ -27,6 +26,8 @@ struct MissionView: View {
     @State var isAdReady = false
     @State var isAdLoading = false
     @State var isDirty = false
+    
+    @State var rewardedAd: GADRewardedAd?
     
     var body: some View {
         ZStack {

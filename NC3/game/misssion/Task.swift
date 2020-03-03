@@ -62,7 +62,7 @@ class Task: Identifiable, Encodable, Decodable {
     }
     
     func getReward() -> Int {
-        return self.getGoal() * self.rewardMultiplier
+        return Int(Double(self.getGoal()) * 0.2)
     }
     
     func isComplete() -> Bool {
