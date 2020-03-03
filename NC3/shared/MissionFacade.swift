@@ -16,7 +16,7 @@ import Foundation
 class MissionFacade: MissionListener, ObservableObject {
     
     @Published var missions: [Mission]!
-    @Published var coinReward: Int!
+    @Published var coinReward: Int! = 0
     
     static let instance = MissionFacade()
     var missionPool: MissionPool!

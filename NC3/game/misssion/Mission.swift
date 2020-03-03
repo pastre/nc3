@@ -10,6 +10,7 @@ import Foundation
 
 class Mission: Task {
     
+    var isAdComplete: Bool = false
     var progress: Int!
     var eventType: MissionEventBinder.Event
 
@@ -53,7 +54,7 @@ class Mission: Task {
     }
     
     override func isComplete() -> Bool {
-        return self.progress >= self.getGoal()
+        return self.isAdComplete || (self.progress >= self.getGoal())
     }
     
     func getDescription() -> String{

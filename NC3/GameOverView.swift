@@ -44,7 +44,7 @@ struct GameOverView: View, GameEventListener {
                     .foregroundColor(Color("goldColor"))
                 
                 
-                ViewWrapper.getText("\(String(format: "%04d", self.missionListener.coinReward))", size: 83, weight: .heavy).foregroundColor(Color("goldColor"))
+                 ViewWrapper.getText("\(String(format: "%04d", self.missionListener.coinReward))", size: 83, weight: .heavy).foregroundColor(Color("goldColor"))
                     .overlay(
                         GeometryReader { rr in
                             Color.clear.onAppear {
@@ -129,9 +129,9 @@ struct GameOverView: View, GameEventListener {
         GameEventBinder.instance.publish(event: .gameStart)
     }
 }
-
-struct GameOverView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameOverView().previewLayout(.fixed(width: 896, height: 414))
-    }
-}
+//
+//struct GameOverView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GameOverView().previewLayout(.fixed(width: 896, height: 414))
+//    }
+//}
